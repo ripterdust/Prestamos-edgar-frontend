@@ -12,7 +12,7 @@ export const MainRouter = () => {
 
     return (
         <BrowserRouter>
-            <div className={context && 'container-loged'}>
+            <div className={context && 'container-logged'}>
                 {context && <Nav />}
                 <Routes>
                     {!context ? (

@@ -4,6 +4,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
 }
 
 body {
@@ -35,6 +41,34 @@ body {
 
 .hide {
   visibility: hidden;
+}
+
+.container-logged {
+  width: 100%;
+  height: 100vh;
+}
+.container-logged nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background: #079642;
+  color: white;
+}
+.container-logged nav i {
+  color: white;
+  cursor: pointer;
+}
+.container-logged nav .strt {
+  color: white;
+  display: flex;
+}
+.container-logged nav .strt a {
+  color: white;
+  cursor: pointer;
+}
+.container-logged nav .strt i {
+  margin-right: 2em;
 }
 
 .frm_usr {
