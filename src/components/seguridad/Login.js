@@ -23,7 +23,9 @@ export const Login = () => {
             password: password.value,
         })
 
-        const token = useContext(TokenContext)
+        if (data.token) {
+            localStorage.setItem('token', data.token)
+        }
     }
     return (
         <form action="" onSubmit={handleForm} className="frm_usr">
