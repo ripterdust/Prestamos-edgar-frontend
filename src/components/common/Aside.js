@@ -4,7 +4,7 @@ export const Aside = () => {
     return (
         <aside className="aside">
             <Link to="/">
-                <i class="fa-solid fa-user"></i> Usuarios
+                <i className="fa-solid fa-user"></i> Usuarios
             </Link>
         </aside>
     )
