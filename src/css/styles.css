@@ -10,35 +10,6 @@ body {
   background: #eceff4;
 }
 
-.frm_usr {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.frm_usr .title {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 20px;
-  padding-bottom: 1em;
-}
-.frm_usr .inputs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: white;
-  padding: 1em;
-}
-.frm_usr .inputs input {
-  margin-bottom: 0.5em;
-}
-.frm_usr .inputs input[type=submit] {
-  width: 100%;
-}
-
 .btn {
   border: none;
   border-radius: 0.5em;
@@ -64,6 +35,59 @@ body {
 
 .hide {
   visibility: hidden;
+}
+
+.frm_usr {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.frm_usr .title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-bottom: 1em;
+}
+.frm_usr .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  padding: 1em;
+}
+.frm_usr .inputs .frm-ctl {
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.frm_usr .inputs .frm-ctl input[type=text],
+.frm_usr .inputs .frm-ctl input[type=email],
+.frm_usr .inputs .frm-ctl input[type=password] {
+  padding: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
+  border: 1px solid #067e37;
+  height: 2.5em;
+  min-height: 2.5em;
+}
+.frm_usr .inputs .frm-ctl i {
+  color: white;
+  background: #067e37;
+  padding: 0 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  text-align: center;
+  height: 100%;
+}
+.frm_usr .inputs input[type=submit] {
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
