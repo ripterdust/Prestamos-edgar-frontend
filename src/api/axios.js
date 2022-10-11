@@ -23,5 +23,5 @@ api.interceptors.response.use(undefined, ({ response }) => {
         errorBatch.classList.remove('show')
     })
 
-    return { status: 400, data: 'data' }
+    return { status: 400, data: [] }
 })
