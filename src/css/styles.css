@@ -54,6 +54,21 @@ body {
   padding: 1em 2em;
   background: #079642;
   color: white;
+  position: relative;
+}
+.container-logged nav .account {
+  position: absolute;
+  background: white;
+  top: 100%;
+  right: 1em;
+}
+.container-logged nav .account div {
+  padding: 1em;
+}
+.container-logged nav .account div:hover {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  user-select: none;
 }
 .container-logged nav i {
   color: white;

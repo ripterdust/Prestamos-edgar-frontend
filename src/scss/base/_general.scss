@@ -54,6 +54,23 @@ body {
         padding: 1em 2em;
         background: lighten($primary, 5%);
         color: white;
+        position: relative;
+
+        .account {
+            position: absolute;
+            background: white;
+            top: 100%;
+            right: 1em;
+
+            div {
+                padding: 1em;
+                &:hover {
+                    background: rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    user-select: none;
+                }
+            }
+        }
         i {
             color: white;
             cursor: pointer;
