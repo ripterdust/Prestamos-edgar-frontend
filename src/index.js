@@ -6,6 +6,9 @@ import { Login } from './components/seguridad/Login'
 import { Registro } from './components/seguridad/Registro'
 import { Error } from './components/common/Error'
 
+// Styles
+import './scss/index.scss'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
