@@ -5,27 +5,31 @@ import { Registro } from './../components/seguridad/Registro'
 import { Error } from './../components/common/Error'
 import { TokenContext } from '../hooks/useContextUser'
 import { Index } from '../components/mantenimientos/Index'
+import { Nav } from '../components/common/Nav'
 
 export const MainRouter = () => {
-    const { context, setContext } = useContext(TokenContext)
+    const { context } = useContext(TokenContext)
 
     return (
         <BrowserRouter>
-            <Routes>
-                {!context ? (
-                    <React.Fragment>
-                        <Route exact path="/" element={<Login />} />
-                        <Route path="/registro" element={<Registro />} />
-                    </React.Fragment>
-                ) : (
-                    <>
-                        <Route path="/" element={<Index />}></Route>
-                    </>
-                )}
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
+            <div className={context && 'container-loged'}>
+                {context && <Nav />}
+                <Routes>
+                    {!context ? (
+                        <React.Fragment>
+                            <Route exact path="/" element={<Login />} />
+                            <Route path="/registro" element={<Registro />} />
+                        </React.Fragment>
+                    ) : (
+                        <>
+                            <Route path="/" element={<Index />}></Route>
+                        </>
+                    )}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
 
-            <Error />
+                <Error />
+            </div>
         </BrowserRouter>
     )
 }
