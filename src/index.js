@@ -1,15 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Login } from './components/seguridad/Login'
+import { Registro } from './components/seguridad/Registro'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
+                <Route exact path="/">
+                    Esto es el inicio, neni
+                </Route>
                 <Route exact path="/login" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

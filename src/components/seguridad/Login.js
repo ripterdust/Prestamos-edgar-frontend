@@ -21,6 +21,7 @@ export const Login = () => {
     const handleForm = async (e) => {
         e.preventDefault()
         const { target } = e
+        console.log(target)
         const { status, data } = await api.post('/usuario/autenticar', {
             mail: 'bryantello2010@hotmail.com',
             password: 'marlyn2010',
@@ -28,12 +29,10 @@ export const Login = () => {
         console.log(status, data)
     }
     return (
-        <div>
-            <form action="" onSubmit={handleForm}>
-                <input type="email" onChange={handleMail} />
-                <input type="password" />
-                {user.email && user.pass ? <input type="submit" value="Iniciar sesión" /> : <input type="submit" value="Iniciar sesión" disabled />}
-            </form>
-        </div>
+        <form action="" onSubmit={handleForm} className="frm_usr">
+            <input type="email" onChange={handleMail} />
+            <input type="password" />
+            {user.email && user.pass ? <input type="submit" value="Iniciar sesión" /> : <input type="submit" value="Iniciar sesión" disabled />}
+        </form>
     )
 }
