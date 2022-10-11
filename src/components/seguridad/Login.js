@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { api } from '../../api/axios'
 import { validarEmail } from '../../helpers/validacion.helper'
+import { TokenContext } from '../../hooks/useContextUser'
 
 export const Login = () => {
     const [user, setUser] = useState({ email: true, pass: true })
@@ -17,11 +18,12 @@ export const Login = () => {
         const { target } = e
         const { elements } = target
         const [correo, password] = elements
-        const { status, data } = await api.post('/usuario/autenticar', {
+        const { data } = await api.post('/usuario/autenticar', {
             correo: correo.value,
             password: password.value,
         })
-        console.log(status)
+
+        const token = useContext(TokenContext)
     }
     return (
         <form action="" onSubmit={handleForm} className="frm_usr">

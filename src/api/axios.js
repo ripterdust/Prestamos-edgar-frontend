@@ -7,7 +7,6 @@ export const api = axios.create({
 
 api.interceptors.response.use(undefined, ({ response }) => {
     let error = 'Error desconocido en el servidor'
-    console.log(response.data)
     if (response) error = response.data.message
 
     // MOstrando batch
