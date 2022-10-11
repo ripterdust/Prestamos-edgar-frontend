@@ -21,7 +21,7 @@ export const Registro = () => {
         })
 
         if (response.data) {
-            localStorage.setItem('token', response.data.token)
+            if (response.data.token) localStorage.setItem('token', response.data.token)
         }
     }
 
