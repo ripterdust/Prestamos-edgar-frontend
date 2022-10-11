@@ -1,21 +1,15 @@
 import React, { useState } from 'react'
 import { api } from '../../api/axios'
+import { validarEmail } from '../../helpers/validacion.helper'
 
 export const Login = () => {
     const [user, setUser] = useState({ email: true, pass: true })
 
     const handleMail = ({ target }) => {
-        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-        if (regex.test(target.value))
-            setUser((user) => ({
-                ...user,
-                email: true,
-            }))
-        else
-            setUser((user) => ({
-                ...user,
-                email: false,
-            }))
+        setUser((user) => ({
+            ...user,
+            email: validarEmail(target.value),
+        }))
     }
 
     const handleForm = async (e) => {

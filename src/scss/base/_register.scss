@@ -20,6 +20,7 @@
         flex-direction: column;
         background: white;
         padding: 1em;
+        width: 40%;
 
         .frm-ctl {
             margin-bottom: 0.5em;
@@ -28,14 +29,21 @@
             align-items: center;
             width: 100%;
 
-            input[type='text'],
-            input[type='email'],
-            input[type='password'] {
+            input {
                 padding: 0.5em;
                 border-radius: 0 0.5em 0.5em 0;
                 border: 1px solid $primary;
                 height: 2.5em;
                 min-height: 2.5em;
+            }
+
+            input {
+                width: calc(100% - 40px);
+            }
+
+            input:active,
+            input:focus {
+                outline: $primary;
             }
 
             i {
@@ -48,6 +56,7 @@
                 width: 40px;
                 text-align: center;
                 height: 100%;
+                border-radius: 0.5em 0 0 0.5em;
             }
         }
 
