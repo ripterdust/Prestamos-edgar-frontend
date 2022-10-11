@@ -5,7 +5,7 @@ import { validarEmail } from '../../helpers/validacion.helper'
 import { TokenContext } from '../../hooks/useContextUser'
 
 export const Registro = () => {
-    const contexto = useContext(TokenContext)
+    const { setContext } = useContext(TokenContext)
     const [form, setForm] = useState({})
 
     const handleForm = async (e) => {
@@ -21,7 +21,10 @@ export const Registro = () => {
         })
 
         if (response.data) {
-            if (response.data.token) localStorage.setItem('token', response.data.token)
+            if (response.data.token) {
+                localStorage.setItem('token', response.data.token)
+                setContext(response.data.token)
+            }
         }
     }
 
