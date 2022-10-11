@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Login } from './components/seguridad/Login'
 import { Registro } from './components/seguridad/Registro'
+import { Error } from './components/common/Error'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -17,6 +18,7 @@ root.render(
                 <Route path="/registro" element={<Registro />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
+            <Error />
         </BrowserRouter>
     </React.StrictMode>
 )
