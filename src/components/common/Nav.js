@@ -14,10 +14,16 @@ export const Nav = () => {
         localStorage.removeItem('token')
         setContext(null)
     }
+
+    const handleNav = () => {
+        const aside = document.querySelector('.aside')
+        aside.classList.toggle('w0')
+    }
+
     return (
         <nav>
             <div className="strt">
-                <div id="menu">
+                <div id="menu" onClick={handleNav}>
                     <i className="fa-solid fa-bars"></i>
                 </div>
                 <Link to={'/'}>Logo de la empresa</Link>

@@ -51,10 +51,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 2em;
+  padding: 0 2em;
   background: #079642;
   color: white;
   position: relative;
+  height: 3em;
 }
 .container-logged nav .account {
   position: absolute;
@@ -84,6 +85,27 @@ body {
 }
 .container-logged nav .strt i {
   margin-right: 2em;
+}
+.container-logged .body {
+  width: 100%;
+  height: calc(100% - 3em);
+  display: flex;
+  gap: 1em;
+}
+.container-logged .body .aside {
+  width: 15%;
+  background: white;
+  transition: 0.3s ease-in-out;
+}
+.container-logged .body .aside a {
+  transition: 0.3s ease-in-out;
+}
+.container-logged .body .w0 {
+  width: 0;
+}
+.container-logged .body .w0 a {
+  width: 0;
+  visibility: hidden;
 }
 
 .frm_usr {

@@ -51,11 +51,11 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1em 2em;
+        padding: 0 2em;
         background: lighten($primary, 5%);
         color: white;
         position: relative;
-
+        height: 3em;
         .account {
             position: absolute;
             background: white;
@@ -86,6 +86,30 @@ body {
 
             i {
                 margin-right: 2em;
+            }
+        }
+    }
+
+    .body {
+        width: 100%;
+        height: calc(100% - 3em);
+        display: flex;
+        gap: 1em;
+        .aside {
+            width: 15%;
+            background: white;
+            transition: 0.3s ease-in-out;
+
+            a {
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        .w0 {
+            width: 0;
+            a {
+                width: 0;
+                visibility: hidden;
             }
         }
     }
