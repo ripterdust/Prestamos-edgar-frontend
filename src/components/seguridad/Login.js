@@ -5,6 +5,7 @@ import { TokenContext } from '../../hooks/useContextUser'
 
 export const Login = () => {
     const [user, setUser] = useState({ email: true, pass: true })
+    const { setContext } = useContext(TokenContext)
 
     const handleMail = ({ target }) => {
         setUser((user) => ({
@@ -25,6 +26,7 @@ export const Login = () => {
 
         if (data.token) {
             localStorage.setItem('token', data.token)
+            setContext(data.token)
         }
     }
     return (

@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 const token = localStorage.token
-
 root.render(
     <React.StrictMode>
         <TokenContext.Provider value={token}>

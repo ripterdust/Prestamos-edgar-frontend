@@ -1,34 +1,17 @@
-import React, { useContext } from 'react'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-import { Login } from './components/seguridad/Login'
-import { Registro } from './components/seguridad/Registro'
-import { Error } from './components/common/Error'
+import React, { useContext, useState } from 'react'
+
 import { TokenContext } from './hooks/useContextUser'
 
 // Styles
 import './css/styles.css'
-import { Index } from './components/mantenimientos/Index'
+import { MainRouter } from './router/MainRouter'
 
 export const App = () => {
-    const token = useContext(TokenContext)
-
+    const token = localStorage.token
+    const [context, setContext] = useState(token)
     return (
-        <BrowserRouter>
-            <Routes>
-                {!token ? (
-                    <React.Fragment>
-                        <Route exact path="/" element={<Login />} />
-                        <Route path="/registro" element={<Registro />} />
-                    </React.Fragment>
-                ) : (
-                    <>
-                        <Route path="/" element={<Index />}></Route>
-                    </>
-                )}
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-
-            <Error />
-        </BrowserRouter>
+        <TokenContext.Provider value={{ context, setContext }}>
+            <MainRouter />
+        </TokenContext.Provider>
     )
 }
