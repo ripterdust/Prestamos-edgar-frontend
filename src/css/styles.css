@@ -96,9 +96,45 @@ body {
   width: 15%;
   background: white;
   transition: 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  align-items: flex-start;
 }
 .container-logged .body .aside a {
+  transition: 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  position: relative;
+  padding: 1em 2em;
+  z-index: 1;
+  align-items: center;
+}
+.container-logged .body .aside a i {
+  margin-right: 1em;
   transition: 0.3s ease-in-out;
+}
+.container-logged .body .aside a:hover {
+  cursor: pointer;
+  color: white;
+}
+.container-logged .body .aside a:hover i {
+  color: white;
+}
+.container-logged .body .aside a::before {
+  content: "";
+  background: #079642;
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+.container-logged .body .aside a:hover:before {
+  width: 100%;
 }
 .container-logged .body .w0 {
   width: 0;
@@ -106,6 +142,9 @@ body {
 .container-logged .body .w0 a {
   width: 0;
   visibility: hidden;
+}
+.container-logged .body .w0 a i {
+  display: none;
 }
 
 .frm_usr {

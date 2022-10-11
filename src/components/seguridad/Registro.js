@@ -11,7 +11,7 @@ export const Registro = () => {
     const handleForm = async (e) => {
         e.preventDefault()
         const { password, validate_password, correo, nombre } = form
-        if (password != validate_password) return mostrarError('Las contraseñas deben de coincidir')
+        if (password !== validate_password) return mostrarError('Las contraseñas deben de coincidir')
         if (!validarEmail(correo)) return mostrarError('Correo electrónico inválido')
 
         const response = await api.post('usuario/registrar', {

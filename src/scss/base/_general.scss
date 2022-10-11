@@ -99,9 +99,46 @@ body {
             width: 15%;
             background: white;
             transition: 0.3s ease-in-out;
-
+            display: flex;
+            justify-content: center;
+            padding-top: 1em;
+            align-items: flex-start;
             a {
-                transition: 0.3s ease-in-out;
+                transition: 0.2s ease-in-out;
+                width: 100%;
+                display: flex;
+                justify-content: left;
+                position: relative;
+                padding: 1em 2em;
+                z-index: 1;
+                align-items: center;
+
+                i {
+                    margin-right: 1em;
+                    transition: 0.3s ease-in-out;
+                }
+                &:hover {
+                    cursor: pointer;
+                    color: white;
+                    i {
+                        color: white;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    background: lighten($primary, 5%);
+                    width: 0%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    transition: 0.3s ease-in-out;
+                }
+                &:hover:before {
+                    width: 100%;
+                }
             }
         }
 
@@ -110,6 +147,10 @@ body {
             a {
                 width: 0;
                 visibility: hidden;
+
+                i {
+                    display: none;
+                }
             }
         }
     }
