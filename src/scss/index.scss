@@ -1,6 +1,5 @@
 // Abstracts
+@import './abstracts/variables';
 
 // Base
-body {
-    background: black;
-}
+@import './base/general';

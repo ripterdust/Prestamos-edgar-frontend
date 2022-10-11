@@ -7,18 +7,18 @@ import { Registro } from './components/seguridad/Registro'
 import { Error } from './components/common/Error'
 
 // Styles
-import './scss/index.scss'
+import './css/styles.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
+                <Route exact path="/login" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
                 <Route exact path="/">
                     Esto es el inicio, neni
                 </Route>
-                <Route exact path="/login" element={<Login />} />
-                <Route path="/registro" element={<Registro />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Error />

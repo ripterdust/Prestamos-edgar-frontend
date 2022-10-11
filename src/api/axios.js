@@ -12,15 +12,15 @@ api.interceptors.response.use(undefined, ({ response }) => {
     // MOstrando batch
     const errorBatch = document.querySelector('#error')
     errorBatch.innerHTML = error
-    errorBatch.classList.add('show')
+    errorBatch.classList.remove('hide')
 
     setTimeout(() => {
-        errorBatch.classList.remove('show')
+        errorBatch.classList.add('hide')
         errorBatch.innerHTML = ''
-    }, 5000)
+    }, 10000)
 
     errorBatch.addEventListener('click', () => {
-        errorBatch.classList.remove('show')
+        errorBatch.classList.add('hide')
     })
 
     return { status: 400, data: [] }
