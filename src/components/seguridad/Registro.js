@@ -6,7 +6,6 @@ import { TokenContext } from '../../hooks/useContextUser'
 
 export const Registro = () => {
     const contexto = useContext(TokenContext)
-    console.log(contexto)
     const [form, setForm] = useState({})
 
     const handleForm = async (e) => {

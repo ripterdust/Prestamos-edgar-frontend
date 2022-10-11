@@ -1,13 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
+import { TokenContext } from './hooks/useContextUser'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
+const token = localStorage.token
+
 root.render(
     <React.StrictMode>
-        <App />
+        <TokenContext.Provider value={token}>
+            <App />
+        </TokenContext.Provider>
     </React.StrictMode>
 )
 
