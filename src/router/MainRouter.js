@@ -9,6 +9,7 @@ import { Nav } from '../components/common/Nav'
 import { Aside } from '../components/common/Aside'
 import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 import { Footer } from '../components/common/Footer'
+import { Clientes } from '../components/mantenimientos/clientes/Clientes'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -28,6 +29,7 @@ export const MainRouter = () => {
                         <React.Fragment>
                             <Route exact path="/" element={<Index />}></Route>
                             <Route path="/usuarios" element={<Usuarios />} />
+                            <Route path="/clientes" element={<Clientes />} />
                         </React.Fragment>
                     )}
                     <Route path="*" element={<Navigate to="/" replace />} />
