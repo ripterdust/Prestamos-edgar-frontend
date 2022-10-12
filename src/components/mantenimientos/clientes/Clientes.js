@@ -22,8 +22,13 @@ export const Clientes = () => {
             accessor: 'telefono',
         },
         {
+            Header: 'No. Identificacion',
+            accessor: 'identificacion',
+        },
+        {
             Header: 'Prestamista',
             accessor: 'prestamista_id',
+            hide: true,
         },
     ]
     return (

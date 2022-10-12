@@ -68,7 +68,7 @@ export const BrTable = ({
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
         api.post(`/${endpoint}`, data, config).then((data) => {
-            if (data.status === 500) return
+            if (data.status === 500 || data.status === 400) return
 
             notify('Registro agregado con éxito', 'success')
             refrescarTabla()
@@ -111,7 +111,8 @@ export const BrTable = ({
                     </div>
                     <form action={endpoint} onSubmit={handleForm}>
                         <div className="card-body row">
-                            {columns.map(({ Header, accessor, options, type }, i) => {
+                            {columns.map(({ Header, accessor, options, type, hide }, i) => {
+                                if (hide) return
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
@@ -168,7 +169,8 @@ export const BrTable = ({
                     </div>
                     <form action={endpoint} onSubmit={handleEditForm}>
                         <div className="card-body row">
-                            {columns.map(({ Header, accessor, options, type }, i) => {
+                            {columns.map(({ Header, accessor, options, type, hide }, i) => {
+                                if (hide) return
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
@@ -182,7 +184,7 @@ export const BrTable = ({
                                                                 key={el.value}
                                                                 selected={el.value === editD[accessor] && 'selected'}
                                                             >
-                                                                {el.name}
+                                                                {el.name && el.name}
                                                             </option>
                                                         )
                                                     })}
@@ -256,7 +258,9 @@ export const BrTable = ({
                                         const foranea = columna.foranea
                                         let valor = ''
                                         if (foranea) {
-                                            valor = opciones.find((opt) => opt.value == cell.value).name
+                                            valor = opciones.find((opt) => opt.value == cell.value)
+                                            if (valor) valor = valor.name
+                                            console.log(valor)
                                         }
                                         if (index === 0) {
                                             return (
