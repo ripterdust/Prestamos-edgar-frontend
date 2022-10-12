@@ -12,14 +12,23 @@ export const Usuarios = () => {
         {
             Header: 'Nombre',
             accessor: 'nombre',
+            type: 'text',
         },
         {
             Header: 'Correo electrónico',
             accessor: 'correo',
+            type: 'email',
         },
         {
             Header: 'Rol',
             accessor: 'rol',
+            options: [
+                {
+                    name: 'Administrador',
+                    value: 1,
+                },
+                { name: 'Cajero', value: 2 },
+            ],
         },
     ]
 

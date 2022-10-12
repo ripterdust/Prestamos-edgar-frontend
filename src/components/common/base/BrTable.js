@@ -45,9 +45,22 @@ export const BrTable = ({
     return (
         <>
             <form action={endpoint}>
-                {columns.map(({ Header, accessor }, i) => {
+                {columns.map(({ Header, accessor, options, type }, i) => {
                     if (accessor !== identificador) {
-                        return <input name={accessor} placeholder={Header} key={i} />
+                        if (options) {
+                            return (
+                                <select name={accessor} id="" key={i}>
+                                    {options.map((el) => {
+                                        return (
+                                            <option value={el.value} key={el.value}>
+                                                {el.name}
+                                            </option>
+                                        )
+                                    })}
+                                </select>
+                            )
+                        }
+                        return <input name={accessor} type={type} placeholder={Header} key={i} />
                     }
                 })}
 
