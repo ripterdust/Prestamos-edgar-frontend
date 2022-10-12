@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTable } from 'react-table'
 import { api } from '../../../api/axios'
@@ -17,6 +17,7 @@ export const BrTable = ({
     },
 } = {}) => {
     const { context, setContext } = useContext(TokenContext)
+    const [add, setAdd] = useState(false)
 
     const refrescarTabla = () => {
         console.log('hola')
@@ -40,19 +41,25 @@ export const BrTable = ({
         refrescarTabla()
     }
 
-    const handleForm = async (e) => {
+    const handleAdd = () => {
+        setAdd(!add)
+    }
+
+    const handleForm = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
 
-        const request = await api.post(`/${endpoint}`, data, {
+        api.post(`/${endpoint}`, data, {
             headers: {
                 Authorization: 'Bearer ' + context,
             },
+        }).then(({ data }) => {
+            console.log({ data })
         })
 
-        console.log(request)
+        handleAdd()
     }
 
     const tableInstance = useTable({ columns, data })
@@ -60,33 +67,42 @@ export const BrTable = ({
 
     return (
         <>
-            <form action={endpoint} onSubmit={handleForm}>
-                {columns.map(({ Header, accessor, options, type }, i) => {
-                    if (accessor !== identificador) {
-                        if (options) {
-                            return (
-                                <select name={accessor} id="" key={i}>
-                                    {options.map((el) => {
-                                        return (
-                                            <option value={el.value} key={el.value}>
-                                                {el.name}
-                                            </option>
-                                        )
-                                    })}
-                                </select>
-                            )
+            {add ? (
+                <form action={endpoint} onSubmit={handleForm}>
+                    {columns.map(({ Header, accessor, options, type }, i) => {
+                        if (accessor !== identificador) {
+                            if (options) {
+                                return (
+                                    <select name={accessor} id="" key={i} required>
+                                        {options.map((el) => {
+                                            return (
+                                                <option value={el.value} key={el.value}>
+                                                    {el.name}
+                                                </option>
+                                            )
+                                        })}
+                                    </select>
+                                )
+                            }
+                            return <input name={accessor} type={type} placeholder={Header} key={i} required />
                         }
-                        return <input name={accessor} type={type} placeholder={Header} key={i} />
-                    }
-                })}
-                {opcionales.map(({ Header, accessor }) => {
-                    return <input name={accessor} placeholder={Header} />
-                })}
 
-                <button type="submit">
+                        return
+                    })}
+                    {opcionales.map(({ Header, accessor }, i) => {
+                        return <input name={accessor} placeholder={Header} key={i} />
+                    })}
+
+                    <button type="submit">
+                        <i className="fa-solid fa-plus"></i>
+                    </button>
+                </form>
+            ) : (
+                <div onClick={handleAdd}>
                     <i className="fa-solid fa-plus"></i>
-                </button>
-            </form>
+                </div>
+            )}
+
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
