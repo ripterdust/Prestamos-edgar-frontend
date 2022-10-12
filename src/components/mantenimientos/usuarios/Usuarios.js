@@ -36,7 +36,7 @@ export const Usuarios = () => {
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
                 <div className="card">
-                    <div className="card-header">Usuarios</div>
+                    <h3 className="card-header">Usuarios</h3>
                     <div className="card-body">
                         <BrTable
                             columns={columns}
