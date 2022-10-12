@@ -258,7 +258,7 @@ export const BrTable = ({
                                         const foranea = columna.foranea
                                         let valor = ''
                                         if (foranea) {
-                                            valor = opciones.find((opt) => opt.value == cell.value)
+                                            valor = opciones.find((opt) => `${opt.value}` == `${cell.value}`)
                                             if (valor) valor = valor.name
                                             console.log(valor)
                                         }
