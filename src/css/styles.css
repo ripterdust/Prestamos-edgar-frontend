@@ -211,6 +211,17 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mantenimiento .titulo {
+  font-size: 23px;
+  margin-bottom: 1em;
+}
+.mantenimiento table {
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
