@@ -45,6 +45,7 @@ export const BrTable = ({
 
     const handleAdd = () => {
         setAdd(!add)
+        setEdit(false)
     }
 
     const handleEdit = () => {
@@ -126,7 +127,7 @@ export const BrTable = ({
                                     }
                                     return (
                                         <>
-                                            <div className="form-group col-4" key={`columna-${i * Math.random()}`}>
+                                            <div className="form-group col-4">
                                                 <label htmlFor="">{Header}</label>
                                                 <input name={accessor} type={type} placeholder={Header} required className="form-control" />
                                             </div>
