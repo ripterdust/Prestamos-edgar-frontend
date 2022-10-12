@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTable, TableHead } from 'react-table'
 
-export const BrTable = ({ columns, data }) => {
+export const BrTable = ({ columns, data, endpoint = '/', identificador = 'id' }) => {
     const tableInstance = useTable({ columns, data })
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
@@ -14,6 +14,7 @@ export const BrTable = ({ columns, data }) => {
                         {headerGroup.headers.map((column) => (
                             <th {...column.getHeaderProps()}>{column.render('Header')}</th>
                         ))}
+                        <th>Acción</th>
                     </tr>
                 ))}
             </thead>

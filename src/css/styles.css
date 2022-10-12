@@ -97,9 +97,9 @@ body {
   background: white;
   transition: 0.3s ease-in-out;
   display: flex;
-  justify-content: center;
   padding-top: 1em;
   align-items: flex-start;
+  flex-direction: column;
 }
 .container-logged .body .aside a {
   transition: 0.2s ease-in-out;
