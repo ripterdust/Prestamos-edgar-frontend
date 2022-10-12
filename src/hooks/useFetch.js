@@ -6,7 +6,7 @@ import { TokenContext } from './useContextUser'
 export const useFetch = (url) => {
     const { context, setContext } = useContext(TokenContext)
     const [state, setState] = useState({})
-
+    const [change, setChange] = useState(false)
     useEffect(() => {
         api.get(url, {
             headers: {
@@ -24,7 +24,7 @@ export const useFetch = (url) => {
             .catch((err) => {
                 mostrarError(err)
             })
-    }, [state])
+    }, [change])
 
-    return [state, setState]
+    return [state, setChange]
 }

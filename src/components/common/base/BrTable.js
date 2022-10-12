@@ -89,6 +89,7 @@ export const BrTable = ({
                 mostrarError('Error ocurrido en el servidor')
             })
     }
+
     const tableInstance = useTable({ columns, data })
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
@@ -139,11 +140,9 @@ export const BrTable = ({
                             })}
                             {opcionales.map(({ Header, accessor }, i) => {
                                 return (
-                                    <div className="form-group col-4">
-                                        <label htmlFor="" key={`opcional-${i}`}>
-                                            {Header}
-                                        </label>
-                                        <input name={accessor} placeholder={Header} key={i} className="form-control" />
+                                    <div className="form-group col-4" key={i}>
+                                        <label htmlFor="">{Header}</label>
+                                        <input name={accessor} placeholder={Header} className="form-control" required />
                                     </div>
                                 )
                             })}
@@ -170,9 +169,9 @@ export const BrTable = ({
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
-                                            <div className="from-group col-4" key={i + Math.random()}>
+                                            <div className="from-group col-4" key={i}>
                                                 <label htmlFor="">{Header}</label>
-                                                <select name={accessor} id="" required className="form-control">
+                                                <select name={accessor} className="form-control">
                                                     {options.map((el) => {
                                                         return (
                                                             <option
@@ -213,7 +212,7 @@ export const BrTable = ({
                                         <label htmlFor="" key={i}>
                                             {Header}
                                         </label>
-                                        <input name={accessor} placeholder={Header} key={i} className="form-control" />
+                                        <input name={accessor} placeholder={Header} key={i} className="form-control" required />
                                     </div>
                                 )
                             })}
