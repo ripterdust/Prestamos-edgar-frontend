@@ -18,6 +18,7 @@ export const Nav = () => {
     const handleNav = () => {
         const aside = document.querySelector('.aside')
         aside.classList.toggle('w0')
+        handleAccount()
     }
 
     return (
@@ -33,7 +34,15 @@ export const Nav = () => {
             </div>
 
             <div className="account hide">
-                <div onClick={logOut}>Cerrar sesión</div>
+                <div onClick={handleAccount}>
+                    <Link to="config">
+                        <i className="fa-solid fa-gear"></i>
+                        Configuración
+                    </Link>
+                </div>
+                <div onClick={logOut}>
+                    <i className="fa-solid fa-right-from-bracket"></i>Cerrar sesión
+                </div>
             </div>
         </nav>
     )

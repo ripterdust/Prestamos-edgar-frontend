@@ -1,9 +1,15 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { useTable, TableHead } from 'react-table'
-export const BrTable = ({ columns = [], data = [], endpoint = '/', identificador = 'id' } = {}) => {
-    const tableInstance = useTable({ columns, data })
+import { useTable } from 'react-table'
+import { api } from '../../../api/axios'
 
+export const BrTable = ({ columns = [], data = [], endpoint = '/', identificador = 'id' } = {}) => {
+    const handleDelete = async (endpoint, identificador) => {
+        const res = await api.post(`${endpoint}/${identificador}`)
+        console.log(res)
+    }
+
+    const tableInstance = useTable({ columns, data })
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
     return (
@@ -31,9 +37,12 @@ export const BrTable = ({ columns = [], data = [], endpoint = '/', identificador
                                                 <Link to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
                                                     <i className="fa-solid fa-pen"></i>
                                                 </Link>
-                                                <Link to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}>
+                                                <div
+                                                    onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
+                                                    to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
+                                                >
                                                     <i className="fa-solid fa-trash"></i>
-                                                </Link>
+                                                </div>
                                             </td>
                                             <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                                         </Fragment>

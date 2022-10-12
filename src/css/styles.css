@@ -71,6 +71,10 @@ body {
   cursor: pointer;
   user-select: none;
 }
+.container-logged nav .account i {
+  color: black;
+  margin-right: 0.5em;
+}
 .container-logged nav i {
   color: white;
   cursor: pointer;
