@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Fragment, useContext, useState } from 'react'
 import { useTable } from 'react-table'
 import { api } from '../../../api/axios'
@@ -18,7 +19,11 @@ export const BrTable = ({
     const { context, setContext } = useContext(TokenContext)
     const [add, setAdd] = useState(false)
     const [edit, setEdit] = useState(false)
-
+    const config = {
+        headers: {
+            Authorization: 'Bearer ' + context,
+        },
+    }
     const refrescarTabla = () => {
         setFetch()
     }
@@ -26,11 +31,7 @@ export const BrTable = ({
     const handleDelete = async (endpoint, identificador) => {
         const url = `/${endpoint}/${identificador}`
 
-        const res = await api.delete(url, {
-            headers: {
-                Authorization: 'Bearer ' + context,
-            },
-        })
+        const res = await api.delete(url, config)
         refrescarTabla('Hola')
 
         if (res.status === 403) {
@@ -45,7 +46,22 @@ export const BrTable = ({
     }
 
     const handleEdit = () => {
+        setAdd(false)
         setEdit(!edit)
+    }
+
+    const editar = (id) => {
+        const url = `/${endpoint}/${id}`
+        axios
+            .get(url, config)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                mostrarError('Error en el servidor')
+            })
+        console.log(url)
+        handleEdit()
     }
 
     const handleForm = (e) => {
@@ -87,12 +103,12 @@ export const BrTable = ({
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
-                                            <div className="from-group col-4" key={i}>
+                                            <div className="from-group col-4" key={`coumna-${i}`}>
                                                 <label htmlFor="">{Header}</label>
                                                 <select name={accessor} id="" required className="form-control">
                                                     {options.map((el) => {
                                                         return (
-                                                            <option value={el.value} key={el.value}>
+                                                            <option value={el.value} key={`opcion-${i}`}>
                                                                 {el.name}
                                                             </option>
                                                         )
@@ -103,9 +119,9 @@ export const BrTable = ({
                                     }
                                     return (
                                         <>
-                                            <div className="form-group col-4" key={i}>
+                                            <div className="form-group col-4" key={`columna-${i * Math.random()}`}>
                                                 <label htmlFor="">{Header}</label>
-                                                <input name={accessor} type={type} placeholder={Header} key={i} required className="form-control" />
+                                                <input name={accessor} type={type} placeholder={Header} required className="form-control" />
                                             </div>
                                         </>
                                     )
@@ -116,7 +132,7 @@ export const BrTable = ({
                             {opcionales.map(({ Header, accessor }, i) => {
                                 return (
                                     <div className="form-group col-4">
-                                        <label htmlFor="" key={i}>
+                                        <label htmlFor="" key={`opcional-${i}`}>
                                             {Header}
                                         </label>
                                         <input name={accessor} placeholder={Header} key={i} className="form-control" />
@@ -146,7 +162,7 @@ export const BrTable = ({
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
-                                            <div className="from-group col-4" key={i}>
+                                            <div className="from-group col-4" key={i + Math.random()}>
                                                 <label htmlFor="">{Header}</label>
                                                 <select name={accessor} id="" required className="form-control">
                                                     {options.map((el) => {
@@ -164,7 +180,7 @@ export const BrTable = ({
                                         <>
                                             <div className="form-group col-4" key={i}>
                                                 <label htmlFor="">{Header}</label>
-                                                <input name={accessor} type={type} placeholder={Header} key={i} required className="form-control" />
+                                                <input name={accessor} type={type} placeholder={Header} required className="form-control" />
                                             </div>
                                         </>
                                     )
@@ -218,7 +234,7 @@ export const BrTable = ({
                                                 <Fragment key={cell.render('Cell')}>
                                                     <td className="action">
                                                         <div
-                                                            onClick={handleEdit}
+                                                            onClick={() => editar(cell.row.original[identificador])}
                                                             to={`${endpoint}/editar/${cell.row.original[identificador]}`}
                                                             className="btn btn-success mr-1"
                                                         >

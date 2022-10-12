@@ -34,7 +34,7 @@ export const MainRouter = () => {
                 </Routes>
             </div>
             {context && <Footer />}
-            {/* <Error /> */}
+            <Error />
         </BrowserRouter>
     )
 }
