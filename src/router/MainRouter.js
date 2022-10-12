@@ -26,10 +26,10 @@ export const MainRouter = () => {
                                 <Route path="/registro" element={<Registro />} />
                             </React.Fragment>
                         ) : (
-                            <>
+                            <React.Fragment className="content-wrappera">
                                 <Route exact path="/" element={<Index />}></Route>
                                 <Route path="/usuarios" element={<Usuarios />} />
-                            </>
+                            </React.Fragment>
                         )}
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>

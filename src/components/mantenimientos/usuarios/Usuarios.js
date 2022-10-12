@@ -33,7 +33,7 @@ export const Usuarios = () => {
     ]
 
     return (
-        <div className="mantenimiento">
+        <div className="mantenimiento content-wrapper">
             <div className="titulo">Usuarios</div>
 
             <BrTable
