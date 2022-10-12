@@ -17,10 +17,9 @@ export const BrTable = ({
 } = {}) => {
     const { context, setContext } = useContext(TokenContext)
     const [add, setAdd] = useState(false)
-    const [edit, setEdit] = useState(true)
+    const [edit, setEdit] = useState(false)
 
     const refrescarTabla = () => {
-        console.log('hola')
         setFetch()
     }
 
@@ -139,7 +138,7 @@ export const BrTable = ({
             ) : (
                 <div className="card card-info">
                     <div className="card-header">
-                        <h3 className="card-title">Agregar</h3>
+                        <h3 className="card-title">Editar</h3>
                     </div>
                     <form action={endpoint} onSubmit={handleForm}>
                         <div className="card-body row">
