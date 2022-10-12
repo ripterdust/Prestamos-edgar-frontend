@@ -11,6 +11,47 @@
         margin-bottom: 1em;
     }
 
+    .acn {
+        background: $primary;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        &:hover {
+            cursor: pointer;
+        }
+        i {
+            color: white;
+        }
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        padding: 0.5em;
+        input,
+        select {
+            height: 2.5em;
+            padding: 0 1em;
+        }
+        button {
+            background: $primary;
+            height: 2.5em;
+            padding: 0 1em;
+            border-radius: 0.5em;
+            border: none;
+            cursor: pointer;
+            i {
+                color: white;
+            }
+        }
+
+        select {
+            background: white;
+            border-radius: 4px;
+        }
+    }
+
     table {
         width: 100%;
     }

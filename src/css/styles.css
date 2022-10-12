@@ -270,6 +270,44 @@ table tbody tr:last-of-type {
   font-size: 23px;
   margin-bottom: 1em;
 }
+.mantenimiento .acn {
+  background: #067e37;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+.mantenimiento .acn:hover {
+  cursor: pointer;
+}
+.mantenimiento .acn i {
+  color: white;
+}
+.mantenimiento form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 0.5em;
+}
+.mantenimiento form input,
+.mantenimiento form select {
+  height: 2.5em;
+  padding: 0 1em;
+}
+.mantenimiento form button {
+  background: #067e37;
+  height: 2.5em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+}
+.mantenimiento form button i {
+  color: white;
+}
+.mantenimiento form select {
+  background: white;
+  border-radius: 4px;
+}
 .mantenimiento table {
   width: 100%;
 }

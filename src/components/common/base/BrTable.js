@@ -98,7 +98,7 @@ export const BrTable = ({
                     </button>
                 </form>
             ) : (
-                <div onClick={handleAdd}>
+                <div onClick={handleAdd} className="acn">
                     <i className="fa-solid fa-plus"></i>
                 </div>
             )}
