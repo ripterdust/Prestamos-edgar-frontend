@@ -27,6 +27,13 @@ export const Aside = () => {
                                 <p>Clientes</p>
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="prestamistas">
+                                <i className="nav-icon fas fa-solid fa-money-bill-transfer"></i>
+                                <p>Prestamistas</p>
+                            </Link>
+                        </li>
+                        <li className="nav-header">Configuración</li>
                         <li className="nav-item ">
                             <Link className="nav-link ">
                                 <i className="nav-icon fas fa-regular fa-gear" />
