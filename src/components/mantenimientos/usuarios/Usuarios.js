@@ -27,6 +27,7 @@ export const Usuarios = () => {
             Header: 'Rol',
             accessor: 'rol',
             options,
+            foranea: true,
         },
     ]
 

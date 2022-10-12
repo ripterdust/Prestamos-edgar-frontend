@@ -24,6 +24,7 @@ export const BrTable = ({
             Authorization: 'Bearer ' + context,
         },
     }
+
     const refrescarTabla = () => {
         setFetch({ data: [] })
     }
@@ -249,6 +250,14 @@ export const BrTable = ({
                             return (
                                 <tr {...row.getRowProps()}>
                                     {row.cells.map((cell, index) => {
+                                        const celda = cell.row.cells[index].row.allCells[index]
+                                        const columna = celda.column
+                                        const opciones = columna.options
+                                        const foranea = columna.foranea
+                                        let valor = ''
+                                        if (foranea) {
+                                            valor = opciones.find((opt) => opt.value == cell.value).name
+                                        }
                                         if (index === 0) {
                                             return (
                                                 <Fragment key={cell.render('Cell')}>
@@ -268,11 +277,11 @@ export const BrTable = ({
                                                             <i className="fa-solid fa-trash"></i>
                                                         </div>
                                                     </td>
-                                                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                                    <td {...cell.getCellProps()}>{foranea ? valor : cell.render('Cell')}</td>
                                                 </Fragment>
                                             )
                                         }
-                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                        return <td {...cell.getCellProps()}>{foranea ? valor : cell.render('Cell')}</td>
                                     })}
                                 </tr>
                             )
