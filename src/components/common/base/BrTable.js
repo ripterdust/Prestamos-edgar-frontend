@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { Fragment, useContext, useState } from 'react'
 import { useTable } from 'react-table'
 import { api } from '../../../api/axios'
@@ -17,8 +16,10 @@ export const BrTable = ({
     },
 } = {}) => {
     const { context, setContext } = useContext(TokenContext)
+    const [editD, setEditD] = useState({})
     const [add, setAdd] = useState(false)
     const [edit, setEdit] = useState(false)
+    const [id, setId] = useState(null)
     const config = {
         headers: {
             Authorization: 'Bearer ' + context,
@@ -50,17 +51,12 @@ export const BrTable = ({
         setEdit(!edit)
     }
 
-    const editar = (id) => {
+    const editar = async (id) => {
         const url = `/${endpoint}/${id}`
-        axios
-            .get(url, config)
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((err) => {
-                mostrarError('Error en el servidor')
-            })
-        console.log(url)
+        const { data } = await api.get(url, config)
+        const response = await data.data
+        setEditD(response[0])
+        setId(response[0][identificador])
         handleEdit()
     }
 
@@ -69,18 +65,26 @@ export const BrTable = ({
         const formData = new FormData(e.target)
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
-
-        api.post(`/${endpoint}`, data, {
-            headers: {
-                Authorization: 'Bearer ' + context,
-            },
-        }).then(({ data }) => {
+        api.post(`/${endpoint}`, data, config).then(({ data }) => {
             console.log({ data })
         })
 
         handleAdd()
     }
-
+    const handleEditForm = (e) => {
+        e.preventDefault()
+        const url = `/${endpoint}/edit/${id}`
+        const formData = new FormData(e.target)
+        const dataArray = [...formData]
+        const data = Object.fromEntries(dataArray)
+        api.post(url, data, config)
+            .then(({ data }) => {
+                setEdit(false)
+            })
+            .catch((err) => {
+                mostrarError('Error ocurrido en el servidor')
+            })
+    }
     const tableInstance = useTable({ columns, data })
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
@@ -156,7 +160,7 @@ export const BrTable = ({
                     <div className="card-header">
                         <h3 className="card-title">Editar</h3>
                     </div>
-                    <form action={endpoint} onSubmit={handleForm}>
+                    <form action={endpoint} onSubmit={handleEditForm}>
                         <div className="card-body row">
                             {columns.map(({ Header, accessor, options, type }, i) => {
                                 if (accessor !== identificador) {
@@ -167,7 +171,11 @@ export const BrTable = ({
                                                 <select name={accessor} id="" required className="form-control">
                                                     {options.map((el) => {
                                                         return (
-                                                            <option value={el.value} key={el.value}>
+                                                            <option
+                                                                value={el.value}
+                                                                key={el.value}
+                                                                selected={el.value === editD[accessor] && 'selected'}
+                                                            >
                                                                 {el.name}
                                                             </option>
                                                         )
@@ -180,7 +188,14 @@ export const BrTable = ({
                                         <>
                                             <div className="form-group col-4" key={i}>
                                                 <label htmlFor="">{Header}</label>
-                                                <input name={accessor} type={type} placeholder={Header} required className="form-control" />
+                                                <input
+                                                    name={accessor}
+                                                    type={type}
+                                                    placeholder={Header}
+                                                    required
+                                                    className="form-control"
+                                                    defaultValue={editD[accessor]}
+                                                />
                                             </div>
                                         </>
                                     )
