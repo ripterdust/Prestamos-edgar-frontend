@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { TokenContext } from './hooks/useContextUser'
 
 // Styles
-// import './css/styles.css'
+import './css/styles.css'
 import { MainRouter } from './router/MainRouter'
 
 export const App = () => {

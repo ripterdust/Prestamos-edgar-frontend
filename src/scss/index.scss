@@ -1,14 +1,7 @@
-// Abstracts
-@import './abstracts/variables';
+.action {
+    display: flex;
 
-// Base
-@import './base/general';
-
-// Authentication
-@import './base/register';
-
-// Tables
-@import './abstracts/table';
-
-// Mantenimientos
-@import './abstracts/mantenimiento';
+    div {
+        margin-right: 0.5em;
+    }
+}
