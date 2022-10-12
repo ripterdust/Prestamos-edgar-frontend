@@ -33,11 +33,11 @@ export const Usuarios = () => {
     ]
 
     return (
-        <div className="content-wrapper">
-            <div className="row">
-                <div className="col-12">
-                    <div className="card">
-                        <div className="card-header">Usuarios</div>
+        <div className="row p-1 w-100">
+            <div className="col-12 p-4">
+                <div className="card">
+                    <div className="card-header">Usuarios</div>
+                    <div className="card-body">
                         <BrTable
                             columns={columns}
                             data={response.data}
@@ -50,6 +50,20 @@ export const Usuarios = () => {
                                 },
                             ]}
                         />
+                    </div>
+                    <div className="card-footer clearfix">
+                        <ul className="pagination pagination-sm m-0 float-right">
+                            <li className="page-item">
+                                <a href="page-item" className="page-link">
+                                    «
+                                </a>
+                            </li>
+                            <li className="page-item">
+                                <a href="page-item" className="page-link">
+                                    1
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

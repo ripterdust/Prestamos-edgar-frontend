@@ -4,9 +4,9 @@ export const Aside = () => {
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             {/* Brand Logo */}
-            <a href="index3.html" className="brand-link">
+            <Link to="/" className="brand-link">
                 <span className="brand-text font-weight-light">Nombre compañía</span>
-            </a>
+            </Link>
             {/* Sidebar */}
             <div className="sidebar">
                 {/* Sidebar Menu */}
@@ -44,9 +44,7 @@ export const Aside = () => {
                         </li>
                     </ul>
                 </nav>
-                {/* /.sidebar-menu */}
             </div>
-            {/* /.sidebar */}
         </aside>
     )
 }

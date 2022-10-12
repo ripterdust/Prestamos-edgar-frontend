@@ -15,9 +15,9 @@ export const MainRouter = () => {
 
     return (
         <BrowserRouter>
-            <div className={context && 'container-logged'}>
-                {context && <Nav />}
-                {context && <Aside />}
+            {context && <Nav />}
+            {context && <Aside />}
+            <div className={context && 'content-wrapper'}>
                 <Routes>
                     {!context ? (
                         <React.Fragment>
@@ -25,7 +25,7 @@ export const MainRouter = () => {
                             <Route path="/registro" element={<Registro />} />
                         </React.Fragment>
                     ) : (
-                        <React.Fragment className="content-wrappera">
+                        <React.Fragment>
                             <Route exact path="/" element={<Index />}></Route>
                             <Route path="/usuarios" element={<Usuarios />} />
                         </React.Fragment>
@@ -34,7 +34,7 @@ export const MainRouter = () => {
                 </Routes>
             </div>
             {context && <Footer />}
-            <Error />
+            {/* <Error /> */}
         </BrowserRouter>
     )
 }

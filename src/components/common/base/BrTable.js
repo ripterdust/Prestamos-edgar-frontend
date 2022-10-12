@@ -138,7 +138,7 @@ export const BrTable = ({
                     </button>
                 </form>
             )}
-            <div className="card-body table-responsive p-1">
+            <div className="card-body table-responsive ">
                 <table className="table table-hover text-nowrap" {...getTableProps()}>
                     <thead>
                         {headerGroups.map((headerGroup) => (

@@ -10,8 +10,10 @@ export const App = () => {
     const token = localStorage.token
     const [context, setContext] = useState(token)
     return (
-        <TokenContext.Provider value={{ context, setContext }}>
-            <MainRouter />
-        </TokenContext.Provider>
+        <div className="wrapper">
+            <TokenContext.Provider value={{ context, setContext }}>
+                <MainRouter />
+            </TokenContext.Provider>
+        </div>
     )
 }
