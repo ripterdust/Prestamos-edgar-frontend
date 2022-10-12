@@ -7,6 +7,7 @@ import { TokenContext } from '../hooks/useContextUser'
 import { Index } from '../components/mantenimientos/Index'
 import { Nav } from '../components/common/Nav'
 import { Aside } from '../components/common/Aside'
+import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -25,7 +26,8 @@ export const MainRouter = () => {
                             </React.Fragment>
                         ) : (
                             <>
-                                <Route path="/" element={<Index />}></Route>
+                                <Route exact path="/" element={<Index />}></Route>
+                                <Route path="/usuarios" element={<Usuarios />} />
                             </>
                         )}
                         <Route path="*" element={<Navigate to="/" replace />} />
