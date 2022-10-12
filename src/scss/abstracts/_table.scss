@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    th,
+    td {
+        padding: 12px 15px;
+    }
+    thead {
+        tr {
+            background: $primary;
+            text-align: left;
+            th {
+                color: #ffff;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #dddddd;
+            &:hover {
+                font-weight: bold;
+                td {
+                    color: $accent;
+                }
+            }
+        }
+
+        tr:nth-of-type(even) {
+            background: #f3f3f3;
+        }
+
+        tr:last-of-type {
+            border-bottom: 2px solid $accent;
+        }
+    }
+}
