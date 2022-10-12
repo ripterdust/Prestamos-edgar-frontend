@@ -33,21 +33,26 @@ export const Usuarios = () => {
     ]
 
     return (
-        <div className="mantenimiento content-wrapper">
-            <div className="titulo">Usuarios</div>
-
-            <BrTable
-                columns={columns}
-                data={response.data}
-                endpoint="usuarios"
-                identificador="usuario_id"
-                opcionales={[
-                    {
-                        Header: 'Contraseña',
-                        accessor: 'password',
-                    },
-                ]}
-            />
+        <div className="content-wrapper">
+            <div className="row">
+                <div className="col-12">
+                    <div className="card">
+                        <div className="card-header">Usuarios</div>
+                        <BrTable
+                            columns={columns}
+                            data={response.data}
+                            endpoint="usuarios"
+                            identificador="usuario_id"
+                            opcionales={[
+                                {
+                                    Header: 'Contraseña',
+                                    accessor: 'password',
+                                },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

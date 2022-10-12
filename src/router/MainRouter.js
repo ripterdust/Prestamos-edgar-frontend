@@ -17,26 +17,24 @@ export const MainRouter = () => {
         <BrowserRouter>
             <div className={context && 'container-logged'}>
                 {context && <Nav />}
-                <div className="body">
-                    {context && <Aside />}
-                    <Routes>
-                        {!context ? (
-                            <React.Fragment>
-                                <Route exact path="/" element={<Login />} />
-                                <Route path="/registro" element={<Registro />} />
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment className="content-wrappera">
-                                <Route exact path="/" element={<Index />}></Route>
-                                <Route path="/usuarios" element={<Usuarios />} />
-                            </React.Fragment>
-                        )}
-                        <Route path="*" element={<Navigate to="/" replace />} />
-                    </Routes>
-                </div>
-                {context && <Footer />}
-                <Error />
+                {context && <Aside />}
+                <Routes>
+                    {!context ? (
+                        <React.Fragment>
+                            <Route exact path="/" element={<Login />} />
+                            <Route path="/registro" element={<Registro />} />
+                        </React.Fragment>
+                    ) : (
+                        <React.Fragment className="content-wrappera">
+                            <Route exact path="/" element={<Index />}></Route>
+                            <Route path="/usuarios" element={<Usuarios />} />
+                        </React.Fragment>
+                    )}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
             </div>
+            {context && <Footer />}
+            <Error />
         </BrowserRouter>
     )
 }

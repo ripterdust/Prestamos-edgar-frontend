@@ -138,49 +138,50 @@ export const BrTable = ({
                     </button>
                 </form>
             )}
-
-            <table {...getTableProps()}>
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            <th>Acción</th>
-                            {headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {rows.map((row) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map((cell, index) => {
-                                    if (index === 0) {
-                                        return (
-                                            <Fragment key={cell.render('Cell')}>
-                                                <td className="action">
-                                                    <div onClick={handleEdit} to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
-                                                        <i className="fa-solid fa-pen"></i>
-                                                    </div>
-                                                    <div
-                                                        onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
-                                                        to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
-                                                    >
-                                                        <i className="fa-solid fa-trash"></i>
-                                                    </div>
-                                                </td>
-                                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                            </Fragment>
-                                        )
-                                    }
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                })}
+            <div className="card-body table-responsive p-1">
+                <table className="table table-hover text-nowrap" {...getTableProps()}>
+                    <thead>
+                        {headerGroups.map((headerGroup) => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                <th>Acción</th>
+                                {headerGroup.headers.map((column) => (
+                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                ))}
                             </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {rows.map((row) => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map((cell, index) => {
+                                        if (index === 0) {
+                                            return (
+                                                <Fragment key={cell.render('Cell')}>
+                                                    <td className="action">
+                                                        <div onClick={handleEdit} to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
+                                                            <i className="fa-solid fa-pen"></i>
+                                                        </div>
+                                                        <div
+                                                            onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
+                                                            to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
+                                                        >
+                                                            <i className="fa-solid fa-trash"></i>
+                                                        </div>
+                                                    </td>
+                                                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                                </Fragment>
+                                            )
+                                        }
+                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    })}
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
