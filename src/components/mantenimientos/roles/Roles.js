@@ -2,41 +2,29 @@ import React from 'react'
 import { useFetch } from '../../../hooks/useFetch'
 import { BrTable } from '../../common/base/BrTable'
 
-export const Clientes = () => {
-    const [response, setResponse] = useFetch('/clientes')
+export const Roles = () => {
+    const [response, setResponse] = useFetch('/roles')
     const columns = [
         {
             Header: '#',
-            accessor: 'cliente_id',
+            accessor: 'rol_id',
         },
         {
             Header: 'Nombre',
             accessor: 'nombre',
-        },
-        {
-            Header: 'Correo electrónico',
-            accessor: 'correo',
-        },
-        {
-            Header: 'Teléfono',
-            accessor: 'telefono',
-        },
-        {
-            Header: 'Prestamista',
-            accessor: 'prestamista_id',
         },
     ]
     return (
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
                 <div className="card">
-                    <h3 className="card-header">Clientes</h3>
+                    <h3 className="card-header">Roles</h3>
                     <div className="card-body">
                         <BrTable
                             columns={columns}
                             data={response.data}
-                            endpoint="clientes"
-                            identificador="cliente_id"
+                            endpoint="roles"
+                            identificador="rol_id"
                             opcionales={[]}
                             setFetch={setResponse}
                         />

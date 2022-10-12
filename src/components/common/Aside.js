@@ -16,6 +16,12 @@ export const Aside = () => {
          with font-awesome or any other icon font library */}
                         <li className="nav-header">Personas</li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="roles">
+                                <i class="nav-icon fa-solid fa-people-arrows"></i>
+                                <p>Roles</p>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="usuarios">
                                 <i className="nav-icon fas fa-solid fa-user-tie"></i>
                                 <p>Usuarios</p>
@@ -39,6 +45,7 @@ export const Aside = () => {
                                 <p>Cajeros</p>
                             </Link>
                         </li>
+
                         <li className="nav-header">Configuración</li>
                         <li className="nav-item ">
                             <Link className="nav-link ">

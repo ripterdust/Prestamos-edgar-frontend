@@ -10,6 +10,7 @@ import { Aside } from '../components/common/Aside'
 import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 import { Footer } from '../components/common/Footer'
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
+import { Roles } from '../components/mantenimientos/roles/Roles'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -30,6 +31,7 @@ export const MainRouter = () => {
                             <Route exact path="/" element={<Index />}></Route>
                             <Route path="/usuarios" element={<Usuarios />} />
                             <Route path="/clientes" element={<Clientes />} />
+                            <Route path="/roles" element={<Roles />} />
                         </React.Fragment>
                     )}
                     <Route path="*" element={<Navigate to="/" replace />} />
