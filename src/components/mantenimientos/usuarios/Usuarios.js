@@ -1,9 +1,13 @@
 import React from 'react'
+import { getOptions } from '../../../helpers/getOptions'
 import { useFetch } from '../../../hooks/useFetch'
 import { BrTable } from '../../common/base/BrTable'
 
 export const Usuarios = () => {
     const [response, setResponse] = useFetch('/usuarios')
+    const [roles] = useFetch('/roles')
+    const options = getOptions(roles, { id: 'rol_id', selector: 'nombre' })
+
     const columns = [
         {
             Header: 'Id',
@@ -22,13 +26,7 @@ export const Usuarios = () => {
         {
             Header: 'Rol',
             accessor: 'rol',
-            options: [
-                {
-                    name: 'Administrador',
-                    value: 1,
-                },
-                { name: 'Cajero', value: 2 },
-            ],
+            options,
         },
     ]
 

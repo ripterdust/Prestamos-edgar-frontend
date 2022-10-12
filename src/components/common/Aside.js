@@ -17,7 +17,7 @@ export const Aside = () => {
                         <li className="nav-header">Personas</li>
                         <li className="nav-item">
                             <Link className="nav-link" to="roles">
-                                <i class="nav-icon fa-solid fa-people-arrows"></i>
+                                <i className="nav-icon fa-solid fa-people-arrows"></i>
                                 <p>Roles</p>
                             </Link>
                         </li>
@@ -41,7 +41,7 @@ export const Aside = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="cajeros">
-                                <i class="nav-icon fa-solid fa-sack-dollar"></i>
+                                <i className="nav-icon fa-solid fa-sack-dollar"></i>
                                 <p>Cajeros</p>
                             </Link>
                         </li>
