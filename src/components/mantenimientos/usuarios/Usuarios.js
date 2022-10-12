@@ -27,7 +27,7 @@ export const Usuarios = () => {
         <div className="mantenimiento">
             <div className="titulo">Usuarios</div>
 
-            <BrTable columns={columns} data={response.data} endpoint="usuario" identificador="usuario_id" />
+            <BrTable columns={columns} data={response.data} endpoint="usuarios" identificador="usuario_id" />
         </div>
     )
 }

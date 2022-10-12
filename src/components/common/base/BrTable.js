@@ -5,7 +5,9 @@ import { api } from '../../../api/axios'
 
 export const BrTable = ({ columns = [], data = [], endpoint = '/', identificador = 'id' } = {}) => {
     const handleDelete = async (endpoint, identificador) => {
-        const res = await api.post(`${endpoint}/${identificador}`)
+        const url = `/${endpoint}/${identificador}`
+        console.log(url)
+        const res = await api.delete(url)
         console.log(res)
     }
 
