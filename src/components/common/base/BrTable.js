@@ -8,6 +8,7 @@ import { TokenContext } from '../../../hooks/useContextUser'
 export const BrTable = ({
     columns = [],
     data = [],
+    opcionales = [],
     endpoint = '/',
     identificador = 'id',
     setFetch = () => {
@@ -39,12 +40,27 @@ export const BrTable = ({
         refrescarTabla()
     }
 
+    const handleForm = async (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const dataArray = [...formData]
+        const data = Object.fromEntries(dataArray)
+
+        const request = await api.post(`/${endpoint}`, data, {
+            headers: {
+                Authorization: 'Bearer ' + context,
+            },
+        })
+
+        console.log(request)
+    }
+
     const tableInstance = useTable({ columns, data })
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
     return (
         <>
-            <form action={endpoint}>
+            <form action={endpoint} onSubmit={handleForm}>
                 {columns.map(({ Header, accessor, options, type }, i) => {
                     if (accessor !== identificador) {
                         if (options) {
@@ -62,6 +78,9 @@ export const BrTable = ({
                         }
                         return <input name={accessor} type={type} placeholder={Header} key={i} />
                     }
+                })}
+                {opcionales.map(({ Header, accessor }) => {
+                    return <input name={accessor} placeholder={Header} />
                 })}
 
                 <button type="submit">
