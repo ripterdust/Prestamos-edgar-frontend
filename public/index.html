@@ -29,10 +29,20 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="%PUBLIC_URL%/plugins/fontawesome-free/css/all.min.css" />
+        <!-- IonIcons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/adminlte.min.css" />
     </head>
-    <body>
+    <body class="hold-transition sidebar-mini">
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
+        <div id="root">
+            <div class="wrapper"></div>
+        </div>
         <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -42,5 +52,19 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    --></body>
+      <!-- jQuery -->
+        <script src="%PUBLIC_URL%/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="%PUBLIC_URL%/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE -->
+        <script src="%PUBLIC_URL%/dist/js/adminlte.js"></script>
+
+        <!-- OPTIONAL SCRIPTS -->
+        <script src="%PUBLIC_URL%/plugins/chart.js/Chart.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="%PUBLIC_URL%/dist/js/demo.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="%PUBLIC_URL%/dist/js/pages/dashboard3.js"></script>
+        -->
+    </body>
 </html>

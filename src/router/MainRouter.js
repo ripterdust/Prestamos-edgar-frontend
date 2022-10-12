@@ -8,6 +8,7 @@ import { Index } from '../components/mantenimientos/Index'
 import { Nav } from '../components/common/Nav'
 import { Aside } from '../components/common/Aside'
 import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
+import { Footer } from '../components/common/Footer'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -33,7 +34,7 @@ export const MainRouter = () => {
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </div>
-
+                {context && <Footer />}
                 <Error />
             </div>
         </BrowserRouter>
