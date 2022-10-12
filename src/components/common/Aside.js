@@ -33,6 +33,12 @@ export const Aside = () => {
                                 <p>Prestamistas</p>
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="cajeros">
+                                <i class="nav-icon fa-solid fa-sack-dollar"></i>
+                                <p>Cajeros</p>
+                            </Link>
+                        </li>
                         <li className="nav-header">Configuración</li>
                         <li className="nav-item ">
                             <Link className="nav-link ">
