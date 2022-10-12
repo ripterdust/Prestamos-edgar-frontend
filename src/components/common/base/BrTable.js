@@ -66,12 +66,13 @@ export const BrTable = ({
         const formData = new FormData(e.target)
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
-        api.post(`/${endpoint}`, data, config).then(({ data }) => {
-            setAdd(false)
-            refrescarTabla()
-        })
+        api.post(`/${endpoint}`, data, config).then((data) => {
+            if (data.status === 500) return
 
-        handleAdd()
+            notify('Registro agregado con éxito', 'success')
+            refrescarTabla()
+            handleAdd()
+        })
     }
     const handleEditForm = (e) => {
         e.preventDefault()
@@ -80,7 +81,9 @@ export const BrTable = ({
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
         api.post(url, data, config)
-            .then(({ data }) => {
+            .then((res) => {
+                if (res.status === 500) return ''
+                notify('Registro actualizado con éxito', 'success')
                 setEdit(false)
                 refrescarTabla()
             })
