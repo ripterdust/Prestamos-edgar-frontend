@@ -1,8 +1,8 @@
 .action {
   display: flex;
 }
-.action div {
-  margin-right: 0.5em;
+.action i {
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */

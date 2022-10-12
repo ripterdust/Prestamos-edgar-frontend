@@ -73,40 +73,69 @@ export const BrTable = ({
         <>
             {!add && !edit ? (
                 <div className="acn-btns">
-                    <div onClick={handleAdd} className="acn">
+                    <div onClick={handleAdd} className="acn btn btn-success">
                         <i className="fa-solid fa-plus"></i>
                     </div>
                 </div>
             ) : add ? (
-                <form action={endpoint} onSubmit={handleForm}>
-                    {columns.map(({ Header, accessor, options, type }, i) => {
-                        if (accessor !== identificador) {
-                            if (options) {
+                <div className="card card-success">
+                    <div className="card-header">
+                        <h3 className="card-title">Agregar</h3>
+                    </div>
+                    <form action={endpoint} onSubmit={handleForm}>
+                        <div className="card-body row">
+                            {columns.map(({ Header, accessor, options, type }, i) => {
+                                if (accessor !== identificador) {
+                                    if (options) {
+                                        return (
+                                            <div className="from-group col-4" key={i}>
+                                                <label htmlFor="">{Header}</label>
+                                                <select name={accessor} id="" required className="form-control">
+                                                    {options.map((el) => {
+                                                        return (
+                                                            <option value={el.value} key={el.value}>
+                                                                {el.name}
+                                                            </option>
+                                                        )
+                                                    })}
+                                                </select>
+                                            </div>
+                                        )
+                                    }
+                                    return (
+                                        <>
+                                            <div className="form-group col-4" key={i}>
+                                                <label htmlFor="">{Header}</label>
+                                                <input name={accessor} type={type} placeholder={Header} key={i} required className="form-control" />
+                                            </div>
+                                        </>
+                                    )
+                                }
+
+                                return
+                            })}
+                            {opcionales.map(({ Header, accessor }, i) => {
                                 return (
-                                    <select name={accessor} id="" key={i} required>
-                                        {options.map((el) => {
-                                            return (
-                                                <option value={el.value} key={el.value}>
-                                                    {el.name}
-                                                </option>
-                                            )
-                                        })}
-                                    </select>
+                                    <div className="form-group col-4">
+                                        <label htmlFor="" key={i}>
+                                            {Header}
+                                        </label>
+                                        <input name={accessor} placeholder={Header} key={i} className="form-control" />
+                                    </div>
                                 )
-                            }
-                            return <input name={accessor} type={type} placeholder={Header} key={i} required />
-                        }
+                            })}
+                        </div>
 
-                        return
-                    })}
-                    {opcionales.map(({ Header, accessor }, i) => {
-                        return <input name={accessor} placeholder={Header} key={i} />
-                    })}
-
-                    <button type="submit">
-                        <i className="fa-solid fa-plus"></i>
-                    </button>
-                </form>
+                        <div className="card-footer">
+                            <button type="submit" className="btn btn-success">
+                                Guardar
+                            </button>
+                            <div className="btn btn-danger ml-1" onClick={handleAdd}>
+                                Cancelar
+                            </div>
+                        </div>
+                    </form>
+                </div>
             ) : (
                 <form action={endpoint} onSubmit={handleForm}>
                     {columns.map(({ Header, accessor, options, type }, i) => {
@@ -160,12 +189,17 @@ export const BrTable = ({
                                             return (
                                                 <Fragment key={cell.render('Cell')}>
                                                     <td className="action">
-                                                        <div onClick={handleEdit} to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
+                                                        <div
+                                                            onClick={handleEdit}
+                                                            to={`${endpoint}/editar/${cell.row.original[identificador]}`}
+                                                            className="btn btn-success mr-1"
+                                                        >
                                                             <i className="fa-solid fa-pen"></i>
                                                         </div>
                                                         <div
                                                             onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
                                                             to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
+                                                            className="btn btn-danger"
                                                         >
                                                             <i className="fa-solid fa-trash"></i>
                                                         </div>
