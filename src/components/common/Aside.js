@@ -5,7 +5,7 @@ export const Aside = () => {
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             {/* Brand Logo */}
             <Link to="/" className="brand-link">
-                <span className="brand-text font-weight-light">Nombre compañía</span>
+                <span className="brand-text font-weight-light">Corpodine S.A</span>
             </Link>
             {/* Sidebar */}
             <div className="sidebar">
