@@ -15,7 +15,7 @@ export const useFetch = (url) => {
         })
             .then((res) => {
                 if (res.status === 403) {
-                    setContext(null)
+                    setContext({})
                     return localStorage.removeItem('token')
                 }
 
@@ -24,7 +24,7 @@ export const useFetch = (url) => {
             .catch((err) => {
                 mostrarError(err)
             })
-    }, [])
+    }, [state])
 
-    return state
+    return [state, setState]
 }

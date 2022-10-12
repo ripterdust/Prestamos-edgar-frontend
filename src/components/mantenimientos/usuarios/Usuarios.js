@@ -3,7 +3,7 @@ import { useFetch } from '../../../hooks/useFetch'
 import { BrTable } from '../../common/base/BrTable'
 
 export const Usuarios = () => {
-    const response = useFetch('/usuarios')
+    const [response, setResponse] = useFetch('/usuarios')
     const columns = [
         {
             Header: 'Id',
@@ -49,6 +49,7 @@ export const Usuarios = () => {
                                     accessor: 'password',
                                 },
                             ]}
+                            setFetch={setResponse}
                         />
                     </div>
                     <div className="card-footer clearfix">

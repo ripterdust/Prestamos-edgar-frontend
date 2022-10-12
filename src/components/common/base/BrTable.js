@@ -26,19 +26,20 @@ export const BrTable = ({
         },
     }
     const refrescarTabla = () => {
-        setFetch()
+        setFetch({ data: [] })
     }
 
     const handleDelete = async (endpoint, identificador) => {
         const url = `/${endpoint}/${identificador}`
 
-        const res = await api.delete(url, config)
-        refrescarTabla('Hola')
+        api.delete(url, config).then((res) => {
+            if (res.status === 403) {
+                setContext(null)
+                return localStorage.removeItem('token')
+            }
+            refrescarTabla()
+        })
 
-        if (res.status === 403) {
-            setContext(null)
-            return localStorage.removeItem('token')
-        }
         refrescarTabla()
     }
 
@@ -66,7 +67,8 @@ export const BrTable = ({
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray)
         api.post(`/${endpoint}`, data, config).then(({ data }) => {
-            console.log({ data })
+            setAdd(false)
+            refrescarTabla()
         })
 
         handleAdd()
@@ -80,6 +82,7 @@ export const BrTable = ({
         api.post(url, data, config)
             .then(({ data }) => {
                 setEdit(false)
+                refrescarTabla()
             })
             .catch((err) => {
                 mostrarError('Error ocurrido en el servidor')
