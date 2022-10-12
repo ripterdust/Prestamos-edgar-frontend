@@ -281,6 +281,10 @@ table tbody tr:last-of-type {
 .mantenimiento .acn i {
   color: white;
 }
+.mantenimiento .acn-btns {
+  display: flex;
+  gap: 1em;
+}
 .mantenimiento form {
   width: 100%;
   display: flex;

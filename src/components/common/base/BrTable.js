@@ -18,6 +18,7 @@ export const BrTable = ({
 } = {}) => {
     const { context, setContext } = useContext(TokenContext)
     const [add, setAdd] = useState(false)
+    const [edit, setEdit] = useState(false)
 
     const refrescarTabla = () => {
         console.log('hola')
@@ -45,6 +46,10 @@ export const BrTable = ({
         setAdd(!add)
     }
 
+    const handleEdit = () => {
+        setEdit(!edit)
+    }
+
     const handleForm = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -67,7 +72,13 @@ export const BrTable = ({
 
     return (
         <>
-            {add ? (
+            {!add && !edit ? (
+                <div className="acn-btns">
+                    <div onClick={handleAdd} className="acn">
+                        <i className="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+            ) : add ? (
                 <form action={endpoint} onSubmit={handleForm}>
                     {columns.map(({ Header, accessor, options, type }, i) => {
                         if (accessor !== identificador) {
@@ -98,9 +109,35 @@ export const BrTable = ({
                     </button>
                 </form>
             ) : (
-                <div onClick={handleAdd} className="acn">
-                    <i className="fa-solid fa-plus"></i>
-                </div>
+                <form action={endpoint} onSubmit={handleForm}>
+                    {columns.map(({ Header, accessor, options, type }, i) => {
+                        if (accessor !== identificador) {
+                            if (options) {
+                                return (
+                                    <select name={accessor} id="" key={i} required>
+                                        {options.map((el) => {
+                                            return (
+                                                <option value={el.value} key={el.value}>
+                                                    {el.name}
+                                                </option>
+                                            )
+                                        })}
+                                    </select>
+                                )
+                            }
+                            return <input name={accessor} type={type} placeholder={Header} key={i} required />
+                        }
+
+                        return
+                    })}
+                    {opcionales.map(({ Header, accessor }, i) => {
+                        return <input name={accessor} placeholder={Header} key={i} />
+                    })}
+
+                    <button type="submit">
+                        <i className="fa-solid fa-pencil"></i>
+                    </button>
+                </form>
             )}
 
             <table {...getTableProps()}>

@@ -22,7 +22,10 @@
             color: white;
         }
     }
-
+    .acn-btns {
+        display: flex;
+        gap: 1em;
+    }
     form {
         width: 100%;
         display: flex;
