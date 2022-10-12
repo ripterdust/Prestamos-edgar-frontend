@@ -17,6 +17,9 @@ table {
             text-align: left;
             th {
                 color: #ffff;
+                &:first-child {
+                    width: 50px;
+                }
             }
         }
     }
@@ -26,8 +29,16 @@ table {
             border-bottom: 1px solid #dddddd;
             &:hover {
                 font-weight: bold;
-                td {
-                    color: $accent;
+            }
+            .action {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 1px solid rgba(0, 0, 0, 0.15);
+                a {
+                    &:first-child {
+                        margin-right: 0.5em;
+                    }
                 }
             }
         }

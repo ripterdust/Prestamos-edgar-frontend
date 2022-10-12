@@ -27,7 +27,7 @@ export const BrTable = ({ columns = [], data = [], endpoint = '/', identificador
                                 if (index === 0) {
                                     return (
                                         <Fragment key={cell.render('Cell')}>
-                                            <td>
+                                            <td className="action">
                                                 <Link to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
                                                     <i className="fa-solid fa-pen"></i>
                                                 </Link>

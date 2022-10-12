@@ -228,14 +228,23 @@ table thead tr {
 table thead tr th {
   color: white;
 }
+table thead tr th:first-child {
+  width: 50px;
+}
 table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 table tbody tr:hover {
   font-weight: bold;
 }
-table tbody tr:hover td {
-  color: #009879;
+table tbody tr .action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+table tbody tr .action a:first-child {
+  margin-right: 0.5em;
 }
 table tbody tr:nth-of-type(even) {
   background: #f3f3f3;
