@@ -5,20 +5,9 @@ import { TokenContext } from '../../hooks/useContextUser'
 export const Nav = () => {
     const { setContext } = useContext(TokenContext)
 
-    const handleAccount = () => {
-        const account = document.querySelector('.account')
-        account.classList.toggle('hide')
-    }
-
     const logOut = () => {
         localStorage.removeItem('token')
         setContext(null)
-    }
-
-    const handleNav = () => {
-        const aside = document.querySelector('.aside')
-        aside.classList.toggle('w0')
-        handleAccount()
     }
 
     return (
@@ -26,9 +15,9 @@ export const Nav = () => {
             {/* Left navbar links */}
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" data-widget="pushmenu" href="#" role="button">
+                    <div className="nav-link" data-widget="pushmenu" href="#" role="button">
                         <i className="fas fa-bars" />
-                    </a>
+                    </div>
                 </li>
                 <li className="nav-item d-none d-sm-inline-block">
                     <Link to="/" className="nav-link">

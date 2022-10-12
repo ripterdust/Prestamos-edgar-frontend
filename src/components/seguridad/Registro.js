@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { api } from '../../api/axios'
-import { mostrarError } from '../../helpers/mostrarError'
+import { notify } from '../../helpers/notify'
 import { validarEmail } from '../../helpers/validacion.helper'
 import { TokenContext } from '../../hooks/useContextUser'
 
@@ -11,8 +11,8 @@ export const Registro = () => {
     const handleForm = async (e) => {
         e.preventDefault()
         const { password, validate_password, correo, nombre } = form
-        if (password !== validate_password) return mostrarError('Las contraseñas deben de coincidir')
-        if (!validarEmail(correo)) return mostrarError('Correo electrónico inválido')
+        if (password !== validate_password) return notify('Las contraseñas deben de coincidir')
+        if (!validarEmail(correo)) return notify('Correo electrónico inválido')
 
         const response = await api.post('usuario/registrar', {
             password,

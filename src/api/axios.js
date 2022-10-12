@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { mostrarError } from '../helpers/mostrarError'
+import { notify } from '../helpers/notify'
 
 export const api = axios.create({
     baseURL: 'http://localhost:8000',
@@ -10,6 +10,6 @@ api.interceptors.response.use(undefined, ({ response }) => {
     const { data, status } = response
     if (response) error = data.message
     // MOstrando batch
-    mostrarError(error)
+    notify(error)
     return { status, data: data.message }
 })

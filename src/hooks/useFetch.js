@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { api } from '../api/axios'
-import { mostrarError } from '../helpers/mostrarError'
+import { notify } from '../helpers/notify'
 import { TokenContext } from './useContextUser'
 
 export const useFetch = (url) => {
@@ -22,7 +22,7 @@ export const useFetch = (url) => {
                 setState(res.data)
             })
             .catch((err) => {
-                mostrarError(err)
+                notify(err)
             })
     }, [change])
 

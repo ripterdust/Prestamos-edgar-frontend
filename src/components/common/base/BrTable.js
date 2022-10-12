@@ -1,9 +1,8 @@
 import React, { Fragment, useContext, useState } from 'react'
 import { useTable } from 'react-table'
 import { api } from '../../../api/axios'
-import { mostrarError } from '../../../helpers/mostrarError'
+import { notify } from '../../../helpers/notify'
 import { TokenContext } from '../../../hooks/useContextUser'
-
 export const BrTable = ({
     columns = [],
     data = [],
@@ -11,7 +10,7 @@ export const BrTable = ({
     endpoint = '/',
     identificador = 'id',
     setFetch = () => {
-        mostrarError('Ha ocurrido un error refrescando la tabla')
+        notify('Ha ocurrido un error refrescando la tabla')
         return
     },
 } = {}) => {
@@ -86,7 +85,7 @@ export const BrTable = ({
                 refrescarTabla()
             })
             .catch((err) => {
-                mostrarError('Error ocurrido en el servidor')
+                notify('Error ocurrido en el servidor')
             })
     }
 
