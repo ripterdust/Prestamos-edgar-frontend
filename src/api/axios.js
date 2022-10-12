@@ -11,5 +11,5 @@ api.interceptors.response.use(undefined, ({ response }) => {
 
     // MOstrando batch
     mostrarError(error)
-    return { status: 400, data: [] }
+    return { status: response.status, data: [] }
 })

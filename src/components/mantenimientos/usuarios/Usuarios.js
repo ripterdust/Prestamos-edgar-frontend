@@ -1,7 +1,9 @@
 import React from 'react'
+import { useFetch } from '../../../hooks/useFetch'
 import { BrTable } from '../../common/base/BrTable'
 
 export const Usuarios = () => {
+    const response = useFetch('/usuarios')
     const columns = [
         {
             Header: 'Id',
@@ -20,19 +22,12 @@ export const Usuarios = () => {
             accessor: 'rol',
         },
     ]
-    const data = [
-        {
-            usuario_id: 1,
-            nombre: 'Bryan Guillermo Arévalo',
-            correo: 'bryantello2010@hotmail.com',
-            rol: 'Administrador',
-        },
-    ]
+
     return (
         <div className="mantenimiento">
             <div className="titulo">Usuarios</div>
 
-            <BrTable columns={columns} data={data} endpoint="usuario" identificador="usuario_id" />
+            <BrTable columns={columns} data={response.data} endpoint="usuario" identificador="usuario_id" />
         </div>
     )
 }
