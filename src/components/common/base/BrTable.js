@@ -161,9 +161,9 @@ export const BrTable = ({
                                         return (
                                             <Fragment key={cell.render('Cell')}>
                                                 <td className="action">
-                                                    <Link to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
+                                                    <div onClick={handleEdit} to={`${endpoint}/editar/${cell.row.original[identificador]}`}>
                                                         <i className="fa-solid fa-pen"></i>
-                                                    </Link>
+                                                    </div>
                                                     <div
                                                         onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
                                                         to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
