@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFetch } from '../../../hooks/useFetch'
 import { BrTable } from '../../common/base/BrTable'
+import { AdvertenciaCambio } from '../../common/general/AdvertenciaCambio'
 
 export const Roles = () => {
     const [response, setResponse] = useFetch('/roles')
@@ -17,10 +18,7 @@ export const Roles = () => {
     return (
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
-                <blockquote className="quote-danger mt-0">
-                    <h5 id="reminder">Advertencia</h5>
-                    <p>Cualquier cambio en este sitio puede afectar directamente el funcionamiento de la página</p>
-                </blockquote>
+                <AdvertenciaCambio />
                 <div className="card">
                     <h3 className="card-header">Roles</h3>
                     <div className="card-body">
