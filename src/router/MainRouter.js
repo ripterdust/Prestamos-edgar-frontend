@@ -12,10 +12,18 @@ import { Footer } from '../components/common/Footer'
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
 import { Roles } from '../components/mantenimientos/roles/Roles'
 import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
+import { useFetch } from '../hooks/useFetch'
+import { objetoToArray } from '../helpers/objectoToArray'
+import { rutas } from './rutas'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
-
+    const [data] = useFetch('/opcionesMenu/obtenerOpciones')
+    let listaOpciones = []
+    if (data.data) {
+        listaOpciones = objetoToArray(data.data, 'nombre')
+    }
+    const rutasAccesibles = rutas.filter(({ nombre }) => listaOpciones.includes(nombre.toLocaleLowerCase()))
     return (
         <BrowserRouter>
             {context && <Nav />}
@@ -30,10 +38,9 @@ export const MainRouter = () => {
                     ) : (
                         <React.Fragment>
                             <Route exact path="/" element={<Index />}></Route>
-                            <Route path="/usuarios" element={<Usuarios />} />
-                            <Route path="/clientes" element={<Clientes />} />
-                            <Route path="/roles" element={<Roles />} />
-                            <Route path="/opcionesMenu" element={<OpcionesMenu />} />
+                            {rutasAccesibles.map(({ Componente, endpoint }) => {
+                                return <Route path={endpoint} element={<Componente />} />
+                            })}
                         </React.Fragment>
                     )}
                     <Route path="*" element={<Navigate to="/" replace />} />

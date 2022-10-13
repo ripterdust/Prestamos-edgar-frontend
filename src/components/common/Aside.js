@@ -8,10 +8,8 @@ export const Aside = () => {
     let listaOpciones = []
     if (data.data) {
         listaOpciones = objetoToArray(data.data, 'nombre')
-        console.log(listaOpciones)
     }
     const rutasPersonas = rutas.filter(({ categoria, nombre }) => {
-        console.log(categoria, nombre)
         return categoria === categorias.personas && listaOpciones.includes(nombre.toLowerCase())
     })
 
