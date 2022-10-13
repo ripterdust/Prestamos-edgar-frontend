@@ -5,7 +5,7 @@ import { validarEmail } from '../../helpers/validacion.helper'
 import { TokenContext } from '../../hooks/useContextUser'
 
 export const Login = () => {
-    const [setUser] = useState({ email: true, pass: true })
+    const [, setUser] = useState({ email: true, pass: true })
     const { setContext } = useContext(TokenContext)
 
     const handleMail = ({ target }) => {

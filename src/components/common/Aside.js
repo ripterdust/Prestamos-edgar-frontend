@@ -2,13 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
+import { categorias, rutas } from '../../router/rutas'
 export const Aside = () => {
     const [data] = useFetch('/opcionesMenu/obtenerOpciones')
     let listaOpciones = []
     if (data.data) {
         listaOpciones = objetoToArray(data.data, 'nombre')
+        console.log(listaOpciones)
     }
-    console.log(listaOpciones)
+    const rutasPersonas = rutas.filter(({ categoria, nombre }) => {
+        console.log(categoria, nombre)
+        return categoria === categorias.personas && listaOpciones.includes(nombre.toLowerCase())
+    })
+
+    const rutasConfiguracion = rutas.filter(({ categoria, nombre }) => {
+        return categoria === categorias.configuracion && listaOpciones.includes(nombre.toLowerCase())
+    })
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <Link to="/" className="brand-link">
@@ -17,47 +26,32 @@ export const Aside = () => {
             <div className="sidebar">
                 <nav className="mt-2">
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li className="nav-header">Personas</li>
+                        <li className="nav-header">Inicio</li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="Inicio">
+                                <i className="nav-icon fas fa-solid fa-house"></i>
+                                <p>Inicio</p>
+                            </Link>
+                        </li>
+                        {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
+                        {rutasPersonas.map(({ nombre, endpoint, icono }) => (
+                            <li className="nav-item">
+                                <Link className="nav-link" to={endpoint}>
+                                    <i className={`nav-icon ${icono}`}></i>
+                                    <p>{nombre}</p>
+                                </Link>
+                            </li>
+                        ))}
+                        {rutasConfiguracion.length ? <li className="nav-header">Configuracion</li> : ''}
 
-                        <li className="nav-item">
-                            <Link className="nav-link" to="usuarios">
-                                <i className="nav-icon fas fa-solid fa-user-tie"></i>
-                                <p>Usuarios</p>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="clientes">
-                                <i className="nav-icon fas fa-solid fa-user"></i>
-                                <p>Clientes</p>
-                            </Link>
-                        </li>
-                        <li className="nav-header">Configuración</li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="roles">
-                                <i className="nav-icon fa-solid fa-people-arrows"></i>
-                                <p>Roles</p>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="opcionesMenu">
-                                <i className="nav-icon fa-solid fa-sliders"></i>
-                                <p>Opciones de menú</p>
-                            </Link>
-                        </li>
-                        <li className="nav-item ">
-                            <Link className="nav-link ">
-                                <i className="nav-icon fas fa-regular fa-gear" />
-                                <p>Gestion</p>
-                            </Link>
-                            <ul className="nav nav-treeview">
-                                <li className="nav-item">
-                                    <Link className="nav-link" to={'/configuracion'}>
-                                        <i className="far fa-circle nav-icon" />
-                                        <p>Ajustes</p>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </li>
+                        {rutasConfiguracion.map(({ nombre, endpoint, icono }) => (
+                            <li className="nav-item">
+                                <Link className="nav-link" to={endpoint}>
+                                    <i className={`nav-icon ${icono}`}></i>
+                                    <p>{nombre}</p>
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </div>

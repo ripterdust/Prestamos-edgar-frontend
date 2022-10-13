@@ -260,7 +260,6 @@ export const BrTable = ({
                                         if (foranea) {
                                             valor = opciones.find((opt) => `${opt.value}` == `${cell.value}`)
                                             if (valor) valor = valor.name
-                                            console.log(valor)
                                         }
                                         if (index === 0) {
                                             return (
