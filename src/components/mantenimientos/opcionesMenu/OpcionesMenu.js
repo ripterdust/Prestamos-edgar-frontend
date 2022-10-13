@@ -4,17 +4,21 @@ import { BrTable } from '../../common/base/BrTable'
 
 export const OpcionesMenu = () => {
     const [response, setResponse] = useFetch('/opcionesMenu')
+    console.log(response)
     const columns = [
         {
             Header: '#',
-            accessor: 'rol_id',
+            accessor: 'opcion_id',
         },
         {
             Header: 'Nombre',
             accessor: 'nombre',
         },
+        {
+            Header: 'Rol',
+            accessor: 'rol_id',
+        },
     ]
-    console.log(response)
     return (
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
@@ -29,7 +33,7 @@ export const OpcionesMenu = () => {
                             columns={columns}
                             data={response.data}
                             endpoint="opcionesMenu"
-                            identificador="rol_id"
+                            identificador="opcion_id"
                             opcionales={[]}
                             setFetch={setResponse}
                         />
