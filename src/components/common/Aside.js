@@ -1,6 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { objetoToArray } from '../../helpers/objectoToArray'
+import { useFetch } from '../../hooks/useFetch'
 export const Aside = () => {
+    const [data] = useFetch('/opcionesMenu/obtenerOpciones')
+    let listaOpciones = []
+    if (data.data) {
+        listaOpciones = objetoToArray(data.data, 'nombre')
+    }
+    console.log(listaOpciones)
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <Link to="/" className="brand-link">

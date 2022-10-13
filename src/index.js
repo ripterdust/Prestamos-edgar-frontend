@@ -4,9 +4,10 @@ import { App } from './App'
 import { TokenContext } from './hooks/useContextUser'
 import reportWebVitals from './reportWebVitals'
 import { register } from './serviceWorker'
-const root = ReactDOM.createRoot(document.getElementById('root'))
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
 const token = localStorage.token
+
 root.render(
     <React.StrictMode>
         <TokenContext.Provider value={token}>
