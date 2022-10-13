@@ -63,7 +63,7 @@ export const Login = () => {
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="Iniciar sesión" className="btn btn-primary w-100" />
+                        <input type="submit" value="Iniciar sesión" className="btn btn-success w-100" />
                     </form>
                     <br />
                     <Link to="registro" className="">
