@@ -38,8 +38,8 @@ export const MainRouter = () => {
                     ) : (
                         <React.Fragment>
                             <Route exact path="/" element={<Index />}></Route>
-                            {rutasAccesibles.map(({ Componente, endpoint }) => {
-                                return <Route path={endpoint} element={<Componente />} />
+                            {rutasAccesibles.map(({ Componente, endpoint }, i) => {
+                                return <Route path={endpoint} element={<Componente />} key={i} />
                             })}
                         </React.Fragment>
                     )}

@@ -33,7 +33,7 @@ export const Aside = () => {
                         </li>
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (
-                            <li className="nav-item">
+                            <li className="nav-item" key={nombre}>
                                 <Link className="nav-link" to={endpoint}>
                                     <i className={`nav-icon ${icono}`}></i>
                                     <p>{nombre}</p>
@@ -43,7 +43,7 @@ export const Aside = () => {
                         {rutasConfiguracion.length ? <li className="nav-header">Configuracion</li> : ''}
 
                         {rutasConfiguracion.map(({ nombre, endpoint, icono }) => (
-                            <li className="nav-item">
+                            <li className="nav-item" key={nombre}>
                                 <Link className="nav-link" to={endpoint}>
                                     <i className={`nav-icon ${icono}`}></i>
                                     <p>{nombre}</p>
