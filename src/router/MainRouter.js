@@ -11,6 +11,7 @@ import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 import { Footer } from '../components/common/Footer'
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
 import { Roles } from '../components/mantenimientos/roles/Roles'
+import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -32,6 +33,7 @@ export const MainRouter = () => {
                             <Route path="/usuarios" element={<Usuarios />} />
                             <Route path="/clientes" element={<Clientes />} />
                             <Route path="/roles" element={<Roles />} />
+                            <Route path="/opcionesMenu" element={<OpcionesMenu />} />
                         </React.Fragment>
                     )}
                     <Route path="*" element={<Navigate to="/" replace />} />
