@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../../api/axios'
 import { validarEmail } from '../../helpers/validacion.helper'
 import { TokenContext } from '../../hooks/useContextUser'
@@ -30,23 +31,46 @@ export const Login = () => {
         }
     }
     return (
-        <form action="" onSubmit={handleForm} className="frm_usr">
-            <div className="title">Inicio</div>
-            <div className="inputs">
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" placeholder="Correo electrónico" onChange={handleMail} autoComplete="off" />
-                </div>
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-lock"></i>
-                    <input type="password" name="password" id="pass" placeholder="Contraseña" />
-                </div>
-                {user.email && user.pass ? (
-                    <input type="submit" value="Iniciar sesión" className="btn" />
-                ) : (
-                    <input type="submit" className="btn" value="Iniciar sesión" disabled />
-                )}
+        <div className="login-box">
+            <div className="login-logo">
+                <h3>Nombre empresa</h3>
             </div>
-        </form>
+            <div className="card">
+                <div className="card-body login-card-body">
+                    <p className="login-box-msg">Inicia sesión para continuar</p>
+                    <form action="" onSubmit={handleForm}>
+                        <div className="input-group mb-3">
+                            <input
+                                type="email"
+                                name="correo"
+                                id="correo"
+                                placeholder="Correo electrónico"
+                                onChange={handleMail}
+                                autoComplete="off"
+                                className="form-control"
+                            />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="password" name="password" id="pass" placeholder="Contraseña" className="form-control" autoComplete="off" />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Iniciar sesión" className="btn btn-primary w-100" />
+                    </form>
+                    <br />
+                    <Link to="registro" className="">
+                        ¿No tienes una cuenta?
+                    </Link>
+                </div>
+            </div>
+        </div>
     )
 }

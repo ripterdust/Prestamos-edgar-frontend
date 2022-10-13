@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../../api/axios'
 import { notify } from '../../helpers/notify'
 import { validarEmail } from '../../helpers/validacion.helper'
@@ -35,27 +36,58 @@ export const Registro = () => {
         }))
     }
     return (
-        <form className="frm_usr" onSubmit={handleForm}>
-            <div className="title">Registrarse</div>
-            <div className="inputs">
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Nombre completo" name="nombre" onChange={handleInput} />
-                </div>
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="text" placeholder="Correo electrónico" onChange={handleInput} name="correo" />
-                </div>
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-lock"></i>
-                    <input type="password" name="password" placeholder="Contraseña" onChange={handleInput} />
-                </div>
-                <div className="frm-ctl">
-                    <i className="fa-solid fa-lock"></i>
-                    <input type="password" name="validate_password" placeholder="Validar contraseña" onChange={handleInput} />
-                </div>
-                <input type="submit" value="Registrarme" className="btn" />
+        <div className="login-box">
+            <div className="login-logo">
+                <h3>Registro</h3>
             </div>
-        </form>
+            <div className="card">
+                <div className="card-body login-card-body">
+                    <p className="login-box-msg">Regístrate para continuar</p>
+                    <form onSubmit={handleForm}>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Nombre completo" name="nombre" onChange={handleInput} />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Correo electrónico" onChange={handleInput} name="correo" />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="password" name="password" placeholder="Contraseña" className="form-control" onChange={handleInput} />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="input-group mb-3">
+                            <input
+                                type="password"
+                                name="validate_password"
+                                placeholder="Validar contraseña"
+                                className="form-control"
+                                onChange={handleInput}
+                            />
+                            <div className="input-group-append">
+                                <div className="input-group-text">
+                                    <span className="fa-solid fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Registrarme" className="btn w-100 btn-success" />
+                    </form>
+                    <br />
+                    <Link to="/">¿Ya tienes una cuenta?</Link>
+                </div>
+            </div>
+        </div>
     )
 }

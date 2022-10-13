@@ -19,7 +19,7 @@ export const MainRouter = () => {
         <BrowserRouter>
             {context && <Nav />}
             {context && <Aside />}
-            <div className={context && 'content-wrapper'}>
+            <div className={context ? 'content-wrapper' : 'login-page'}>
                 <Routes>
                     {!context ? (
                         <React.Fragment>
