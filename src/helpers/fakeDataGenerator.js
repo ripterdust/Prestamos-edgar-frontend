@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-export const randNumber = (max = 100, min = 0) => faker.datatype.number({ min: 10, max: 100 })
+export const randNumber = (max = 100, min = 0) => faker.datatype.number({ min, max })
 
 export const randName = () => faker.name.fullName()
 
