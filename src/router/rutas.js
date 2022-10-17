@@ -1,4 +1,5 @@
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
+import { Monedas } from '../components/mantenimientos/monedas/Monedas'
 import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
 import { Roles } from '../components/mantenimientos/roles/Roles'
 import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
@@ -54,7 +55,7 @@ export const rutas = [
     {
         nombre: 'Monedas',
         categoria: categorias.prestamos,
-        Componente: Usuarios,
+        Componente: Monedas,
         endpoint: '/monedas',
         icono: 'fas fa-solid fa-money-bill',
     },
