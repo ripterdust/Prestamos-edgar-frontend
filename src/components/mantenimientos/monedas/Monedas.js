@@ -16,7 +16,7 @@ export const Monedas = () => {
         },
         {
             Header: 'Prefijo',
-            accessor: 'Prefix'
+            accessor: 'prefix'
         }
     ]
 
