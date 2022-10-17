@@ -13,6 +13,7 @@ export const Dashboard = () => {
         ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
         ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
         ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
+        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
     ]
     return (
         <div className="row p-4">

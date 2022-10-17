@@ -1,6 +1,15 @@
 import React from 'react'
+import { AdvertenciaCambio } from '../general/AdvertenciaCambio'
 
 export const BrTarjetaTablas = ({ titulo = '', columnas = [], rows = [[]] }) => {
+    if (rows.length > 5) {
+        const mensaje = 'Los registros ingresados sobrepasan el máximo permitido'
+        return (
+            <div className="card">
+                <AdvertenciaCambio titulo="Error" mensaje={mensaje} />
+            </div>
+        )
+    }
     return (
         <div className="card w-100">
             <div className="card-header border-0">
