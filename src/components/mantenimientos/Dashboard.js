@@ -16,7 +16,7 @@ export const Dashboard = () => {
         ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
     ]
     return (
-        <div className="row p-4">
+        <div className="row p-4 w-100">
             <BrTarjetaAzul icono="fa-solid fa-user-tie" texto="Total de usuarios" numero={100} />
             <BrTarjetaAmarilla icono="fa-solid fa-user" texto="Total de clientes" numero={100} />
             <BrTarjetaRoja icono="fa-solid fa-arrow-down" texto="Egresos del mes" numero={100} />
@@ -26,7 +26,21 @@ export const Dashboard = () => {
                 <BrTarjetaTablas titulo="Préstamos" columnas={columnasTablaPrestamos} rows={filasTablaPrestamos} />
             </div>
             <div className="col-md-6">
-                <BrGraficaComparativa titulo="Título de la gráfica" />
+                <BrGraficaComparativa
+                    titulo="Título de la gráfica"
+                    total="10"
+                    tituloTotal="Movimientos del mes"
+                    indicadores={{
+                        primero: {
+                            icono: 'fa-solid fa-arrow-up',
+                            texto: 'Ingresos',
+                        },
+                        segundo: {
+                            icono: 'fa-solid fa-arrow-down',
+                            texto: 'Egresos',
+                        },
+                    }}
+                />
             </div>
         </div>
     )
