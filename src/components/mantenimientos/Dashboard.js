@@ -6,7 +6,7 @@ import { BrTarjetaRoja } from '../common/base/BrTarjetaRoja'
 import { BrTarjetaTablas } from '../common/base/BrTarjetaTablas'
 import { BrTarjetaVerde } from '../common/base/BrTarjetaVerde'
 
-export const Index = () => {
+export const Dashboard = () => {
     const columnasTablaPrestamos = ['Cliente', 'Monto', 'Prestamista', 'Fecha']
     const filasTablaPrestamos = [
         ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],

@@ -4,13 +4,13 @@ import { Login } from './../components/seguridad/Login'
 import { Registro } from './../components/seguridad/Registro'
 import { Error } from './../components/common/Error'
 import { TokenContext } from '../hooks/useContextUser'
-import { Index } from '../components/mantenimientos/Index'
 import { Nav } from '../components/common/Nav'
 import { Aside } from '../components/common/Aside'
 import { Footer } from '../components/common/Footer'
 import { useFetch } from '../hooks/useFetch'
 import { objetoToArray } from '../helpers/objectoToArray'
 import { rutas } from './rutas'
+import { Dashboard } from '../components/mantenimientos/Dashboard'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -33,7 +33,7 @@ export const MainRouter = () => {
                         </React.Fragment>
                     ) : (
                         <React.Fragment>
-                            <Route exact path="/" element={<Index />}></Route>
+                            <Route exact path="/" element={<Dashboard />}></Route>
                             {rutasAccesibles.map(({ Componente, endpoint }, i) => {
                                 return <Route path={endpoint} element={<Componente />} key={i} />
                             })}
