@@ -7,6 +7,7 @@ export const getOptions = ({ message, data }, { id, selector }) => {
                 value: el[id],
             }
             options.push(opt)
+            return true
         })
     }
     return options

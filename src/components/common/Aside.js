@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
 import { categorias, rutas } from '../../router/rutas'
 export const Aside = () => {
     const [data] = useFetch('/opcionesMenu/obtenerOpciones')
+
     let listaOpciones = []
     if (data.data) {
         listaOpciones = objetoToArray(data.data, 'nombre')
@@ -16,6 +17,9 @@ export const Aside = () => {
     const rutasConfiguracion = rutas.filter(({ categoria, nombre }) => {
         return categoria === categorias.configuracion && listaOpciones.includes(nombre.toLowerCase())
     })
+    const install = () => {
+        console.log('instalar')
+    }
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <Link to="/" className="brand-link">
@@ -31,6 +35,14 @@ export const Aside = () => {
                                 <p>Inicio</p>
                             </Link>
                         </li>
+
+                        <li className="nav-item" onClick={install}>
+                            <a className="nav-link" href="#">
+                                <i className="nav-icon fas fa-solid fa-download"></i>
+                                <p>Descargar app</p>
+                            </a>
+                        </li>
+
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (
                             <li className="nav-item" key={nombre}>

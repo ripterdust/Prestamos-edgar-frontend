@@ -15,7 +15,7 @@ export const useFetch = (url) => {
         })
             .then((res) => {
                 if (res.status === 403) {
-                    setContext({})
+                    setContext(null)
                     return localStorage.removeItem('token')
                 }
 
