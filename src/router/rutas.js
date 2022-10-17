@@ -6,6 +6,7 @@ import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 export const categorias = {
     personas: 'personas',
     configuracion: 'configuracion',
+    prestamos: 'prestamos',
 }
 export const rutas = [
     {
@@ -42,5 +43,12 @@ export const rutas = [
         Componente: Usuarios,
         endpoint: '/configuracion',
         icono: 'fas fa-regular fa-gear',
+    },
+    {
+        nombre: 'Prestamos',
+        categoria: categorias.prestamos,
+        Componente: Usuarios,
+        endpoint: '/prestamos',
+        icono: 'fas fa-solid fa-money-check-dollar',
     },
 ]

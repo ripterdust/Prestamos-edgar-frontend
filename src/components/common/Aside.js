@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { notify } from '../../helpers/notify'
 import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
 import { categorias, rutas } from '../../router/rutas'
@@ -17,9 +18,13 @@ export const Aside = () => {
     const rutasConfiguracion = rutas.filter(({ categoria, nombre }) => {
         return categoria === categorias.configuracion && listaOpciones.includes(nombre.toLowerCase())
     })
+
+    const rutasPrestamos = rutas.filter(({ categoria, nombre }) => {
+        return categoria === categorias.prestamos && listaOpciones.includes(nombre.toLocaleLowerCase())
+    })
     const install = (e) => {
         e.preventDefault()
-        console.log('instalar')
+        notify('Función no implementada.')
     }
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -28,7 +33,12 @@ export const Aside = () => {
             </Link>
             <div className="sidebar">
                 <nav className="mt-2">
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul
+                        className="nav nav-pills nav-sidebar flex-column"
+                        data-widget="treeview"
+                        role="menu"
+                        data-accordion="false"
+                    >
                         <li className="nav-header">Inicio</li>
                         <li className="nav-item">
                             <Link className="nav-link" to="Inicio">
@@ -46,6 +56,16 @@ export const Aside = () => {
 
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (
+                            <li className="nav-item" key={nombre}>
+                                <Link className="nav-link" to={endpoint}>
+                                    <i className={`nav-icon ${icono}`}></i>
+                                    <p>{nombre}</p>
+                                </Link>
+                            </li>
+                        ))}
+                        {rutasPrestamos.length ? <li className="nav-header">Préstamos</li> : ''}
+
+                        {rutasPrestamos.map(({ nombre, endpoint, icono }) => (
                             <li className="nav-item" key={nombre}>
                                 <Link className="nav-link" to={endpoint}>
                                     <i className={`nav-icon ${icono}`}></i>
