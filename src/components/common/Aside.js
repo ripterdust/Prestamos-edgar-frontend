@@ -17,7 +17,8 @@ export const Aside = () => {
     const rutasConfiguracion = rutas.filter(({ categoria, nombre }) => {
         return categoria === categorias.configuracion && listaOpciones.includes(nombre.toLowerCase())
     })
-    const install = () => {
+    const install = (e) => {
+        e.preventDefault()
         console.log('instalar')
     }
     return (
@@ -37,7 +38,7 @@ export const Aside = () => {
                         </li>
 
                         <li className="nav-item" onClick={install}>
-                            <a className="nav-link" href="#">
+                            <a className="nav-link" href="/#">
                                 <i className="nav-icon fas fa-solid fa-download"></i>
                                 <p>Descargar app</p>
                             </a>
