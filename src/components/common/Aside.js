@@ -4,9 +4,10 @@ import { notify } from '../../helpers/notify'
 import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
 import { categorias, rutas } from '../../router/rutas'
+import logo from './../../assets/logoBlanco.jpg'
+
 export const Aside = () => {
     const [data] = useFetch('/opcionesMenu/obtenerOpciones')
-
     let listaOpciones = []
     if (data.data) {
         listaOpciones = objetoToArray(data.data, 'nombre')
@@ -29,6 +30,14 @@ export const Aside = () => {
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <Link to="/" className="brand-link">
+                <img
+                    src={logo}
+                    alt="AdminLTE Logo"
+                    className="brand-image elevation-3"
+                    style={{
+                        opacity: 0.9,
+                    }}
+                />
                 <span className="brand-text font-weight-light">Corpodine S.A</span>
             </Link>
             <div className="sidebar">
