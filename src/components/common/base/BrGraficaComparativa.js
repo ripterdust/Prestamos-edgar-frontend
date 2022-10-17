@@ -32,12 +32,12 @@ export const BrGraficaComparativa = ({
         labels,
         datasets: [
             {
-                label: '1',
+                label: indicadores.primero.texto,
                 data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
                 backgroundColor: 'rgb(40,167,69)',
             },
             {
-                label: '2',
+                label: indicadores.segundo.texto,
                 data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
                 backgroundColor: 'rgb(220,53,69)',
             },
@@ -72,11 +72,11 @@ export const BrGraficaComparativa = ({
                 </div>
                 <div className="d-flex flex-row justify-content-end">
                     <span className="mr-2">
-                        <i className={indicadores.primero.icono}></i>
+                        <i className={indicadores.primero.icono + ' mr-1'}></i>
                         {indicadores.primero.texto}
                     </span>
                     <span>
-                        <i className={indicadores.segundo.icono}></i>
+                        <i className={indicadores.segundo.icono + ' mr-1'}></i>
                         {indicadores.segundo.texto}
                     </span>
                 </div>

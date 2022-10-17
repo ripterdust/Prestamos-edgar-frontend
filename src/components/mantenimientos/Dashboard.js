@@ -1,4 +1,5 @@
 import React from 'react'
+import { randDate, randName, randNumber } from '../../helpers/fakeDataGenerator'
 import { BrGraficaComparativa } from '../common/base/BrGraficaComparativa'
 import { BrTarjetaAmarilla } from '../common/base/BrTarjetaAmarilla'
 import { BrTarjetaAzul } from '../common/base/BrTarjetaAzul'
@@ -8,13 +9,14 @@ import { BrTarjetaVerde } from '../common/base/BrTarjetaVerde'
 
 export const Dashboard = () => {
     const columnasTablaPrestamos = ['Cliente', 'Monto', 'Prestamista', 'Fecha']
-    const filasTablaPrestamos = [
-        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
-        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
-        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
-        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
-        ['Bryan Arévalo', 'Q.500.00', 'Pedro Pérez', '15/03/2022'],
-    ]
+    const arr = [1, 2, 3, 4, 5, 5, 5, 5]
+
+    const filasTablaPrestamos = arr.map(() => [
+        randName(),
+        `Q.${randNumber().toFixed(2)}`,
+        randName(),
+        randDate(),
+    ])
     return (
         <div className="row p-4 w-100">
             <BrTarjetaAzul icono="fa-solid fa-user-tie" texto="Total de usuarios" numero={100} />
@@ -23,11 +25,15 @@ export const Dashboard = () => {
             <BrTarjetaVerde icono="fa-solid fa-arrow-up" texto="Ingresos del mes" numero={100} />
 
             <div className="col-md-6">
-                <BrTarjetaTablas titulo="Préstamos" columnas={columnasTablaPrestamos} rows={filasTablaPrestamos} />
+                <BrTarjetaTablas
+                    titulo="Préstamos"
+                    columnas={columnasTablaPrestamos}
+                    rows={filasTablaPrestamos}
+                />
             </div>
             <div className="col-md-6">
                 <BrGraficaComparativa
-                    titulo="Título de la gráfica"
+                    titulo="Gráfica de ingresos y egresos"
                     total="10"
                     tituloTotal="Movimientos del mes"
                     indicadores={{
