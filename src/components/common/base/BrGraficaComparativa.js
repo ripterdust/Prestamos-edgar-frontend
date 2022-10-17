@@ -1,4 +1,8 @@
 import React from 'react'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
+import { Bar } from 'react-chartjs-2'
+import { barCharConfig } from '../../../misc/chars'
+import { faker } from '@faker-js/faker'
 
 export const BrGraficaComparativa = ({
     titulo = 'Título de la gráfica',
@@ -14,7 +18,32 @@ export const BrGraficaComparativa = ({
             texto: 'Segundo indicador',
         },
     },
+    configProp = {},
+    labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 }) => {
+    ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+
+    const options = {
+        ...barCharConfig,
+        ...configProp,
+    }
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: '1',
+                data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+                backgroundColor: 'rgb(40,167,69)',
+            },
+            {
+                label: '2',
+                data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+                backgroundColor: 'rgb(220,53,69)',
+            },
+        ],
+    }
+
     return (
         <div className="card w-100">
             <div className="card-header border-0">
@@ -39,7 +68,7 @@ export const BrGraficaComparativa = ({
                         </div>
                     </div>
 
-                    <canvas id="sales-chart" height="200" width="100%" className="chartjs-render-monitor"></canvas>
+                    <Bar joptions={options} data={data} />
                 </div>
                 <div className="d-flex flex-row justify-content-end">
                     <span className="mr-2">

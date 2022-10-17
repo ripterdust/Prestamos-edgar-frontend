@@ -40,6 +40,7 @@ export const Dashboard = () => {
                             texto: 'Egresos',
                         },
                     }}
+                    labels={['January', 'February', 'March', 'April', 'May', 'June', 'July']}
                 />
             </div>
         </div>
