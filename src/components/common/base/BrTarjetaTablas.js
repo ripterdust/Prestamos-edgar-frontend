@@ -2,7 +2,7 @@ import React from 'react'
 
 export const BrTarjetaTablas = ({ titulo = '', columnas = [], rows = [[]] }) => {
     return (
-        <div class="card w-100">
+        <div className="card w-100">
             <div className="card-header border-0">
                 <div className="card-title">{titulo}</div>
             </div>

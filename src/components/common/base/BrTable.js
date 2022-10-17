@@ -112,7 +112,7 @@ export const BrTable = ({
                     <form action={endpoint} onSubmit={handleForm}>
                         <div className="card-body row">
                             {columns.map(({ Header, accessor, options, type, hide }, i) => {
-                                if (hide) return
+                                if (hide) return ''
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
@@ -140,7 +140,7 @@ export const BrTable = ({
                                     )
                                 }
 
-                                return
+                                return ''
                             })}
                             {opcionales.map(({ Header, accessor }, i) => {
                                 return (
@@ -170,7 +170,7 @@ export const BrTable = ({
                     <form action={endpoint} onSubmit={handleEditForm}>
                         <div className="card-body row">
                             {columns.map(({ Header, accessor, options, type, hide }, i) => {
-                                if (hide) return
+                                if (hide) return ''
                                 if (accessor !== identificador) {
                                     if (options) {
                                         return (
@@ -209,7 +209,7 @@ export const BrTable = ({
                                     )
                                 }
 
-                                return
+                                return ''
                             })}
                             {opcionales.map(({ Header, accessor }, i) => {
                                 return (
@@ -258,7 +258,7 @@ export const BrTable = ({
                                         const foranea = columna.foranea
                                         let valor = ''
                                         if (foranea) {
-                                            valor = opciones.find((opt) => `${opt.value}` == `${cell.value}`)
+                                            valor = opciones.find((opt) => `${opt.value}` === `${cell.value}`)
                                             if (valor) valor = valor.name
                                         }
                                         if (index === 0) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrGraficaComparativa } from '../common/base/BrGraficaComparativa'
 import { BrTarjetaAmarilla } from '../common/base/BrTarjetaAmarilla'
 import { BrTarjetaAzul } from '../common/base/BrTarjetaAzul'
 import { BrTarjetaRoja } from '../common/base/BrTarjetaRoja'
@@ -20,7 +21,12 @@ export const Index = () => {
             <BrTarjetaRoja icono="fa-solid fa-arrow-down" texto="Egresos del mes" numero={100} />
             <BrTarjetaVerde icono="fa-solid fa-arrow-up" texto="Ingresos del mes" numero={100} />
 
-            <BrTarjetaTablas titulo="Préstamos" columnas={columnasTablaPrestamos} rows={filasTablaPrestamos} />
+            <div className="col-md-6">
+                <BrTarjetaTablas titulo="Préstamos" columnas={columnasTablaPrestamos} rows={filasTablaPrestamos} />
+            </div>
+            <div className="col-md-6">
+                <BrGraficaComparativa titulo="Título de la gráfica" />
+            </div>
         </div>
     )
 }
