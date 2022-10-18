@@ -25,6 +25,18 @@ export const Clientes = () => {
             accessor: 'telefono',
         },
         {
+            Header: 'Nit',
+            accessor: 'nit',
+        },
+        {
+            Header: 'Fecha de nacimiento',
+            accessor: 'fecha_nacimiento',
+        },
+        {
+            Header: 'Dirección',
+            accessor: 'direccion',
+        },
+        {
             Header: 'No. Identificacion',
             accessor: 'identificacion',
         },
