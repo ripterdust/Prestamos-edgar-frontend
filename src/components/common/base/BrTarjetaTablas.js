@@ -1,5 +1,4 @@
 import React from 'react'
-import { AdvertenciaCambio } from '../general/AdvertenciaCambio'
 
 export const BrTarjetaTablas = ({ titulo = '', columnas = [], rows = [[]] }) => {
     return (
