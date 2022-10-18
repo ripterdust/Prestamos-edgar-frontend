@@ -14,7 +14,11 @@ import { Dashboard } from '../components/mantenimientos/Dashboard'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
-    const [data] = useFetch('/opcionesMenu/obtenerOpciones')
+    let data = []
+    if (context) {
+        const [res] = useFetch('/opcionesMenu/obtenerOpciones')
+        data = res
+    }
     let listaOpciones = []
     if (data.data) {
         listaOpciones = objetoToArray(data.data, 'nombre')

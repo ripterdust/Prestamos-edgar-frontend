@@ -2,11 +2,19 @@ import axios from 'axios'
 import { notify } from '../helpers/notify'
 
 export const api = axios.create({
-    baseURL: 'http://137.184.73.135:8000',
+    baseURL: 'https://137.184.73.135:8000',
 })
 
 api.interceptors.response.use(undefined, ({ response }) => {
     let error = 'Error desconocido en el servidor'
+
+    if (!response) {
+        notify(error)
+        return {
+            status,
+            data: [],
+        }
+    }
     const { data, status } = response
     if (response) error = data.message
     // MOstrando batch

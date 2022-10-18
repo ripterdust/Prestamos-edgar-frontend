@@ -5,7 +5,9 @@ import { TokenContext } from './useContextUser'
 
 export const useFetch = (url) => {
     const { context, setContext } = useContext(TokenContext)
-    const [state, setState] = useState({})
+    const [state, setState] = useState({
+        data: [],
+    })
     const [change, setChange] = useState(false)
     useEffect(() => {
         api.get(url, {
