@@ -5,6 +5,7 @@ import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
 import { categorias, rutas } from '../../router/rutas'
 import logo from './../../assets/logoBlanco.jpg'
+import {InstalarPWA} from './base/InstalarPWA'
 
 export const Aside = () => {
     const [data] = useFetch('/opcionesMenu/obtenerOpciones')
@@ -23,10 +24,12 @@ export const Aside = () => {
     const rutasPrestamos = rutas.filter(({ categoria, nombre }) => {
         return categoria === categorias.prestamos && listaOpciones.includes(nombre.toLocaleLowerCase())
     })
-    const install = (e) => {
-        e.preventDefault()
-        notify('Función no implementada.')
-    }
+
+    // const install = (e) => {
+    //     e.preventDefault()
+    //     notify('Función no implementada.')
+    // }
+
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <Link to="/" className="brand-link">
@@ -56,12 +59,7 @@ export const Aside = () => {
                             </Link>
                         </li>
 
-                        <li className="nav-item" onClick={install}>
-                            <a className="nav-link" href="/#">
-                                <i className="nav-icon fas fa-solid fa-download"></i>
-                                <p>Descargar app</p>
-                            </a>
-                        </li>
+                        <InstalarPWA/>
 
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (
