@@ -1,6 +1,7 @@
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
 import { Monedas } from '../components/mantenimientos/monedas/Monedas'
 import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
+import { Prestamos } from '../components/mantenimientos/prestamos/Prestamos'
 import { Roles } from '../components/mantenimientos/roles/Roles'
 import { Usuarios } from '../components/mantenimientos/usuarios/Usuarios'
 
@@ -45,12 +46,13 @@ export const rutas = [
         endpoint: '/configuracion',
         icono: 'fas fa-regular fa-gear',
     },
+
     {
         nombre: 'Prestamos',
         categoria: categorias.prestamos,
-        Componente: Usuarios,
+        Componente: Prestamos,
         endpoint: '/prestamos',
-        icono: 'fas fa-solid fa-money-check-dollar',
+        icono: 'fa-solid fa-hand-holding-dollar',
     },
     {
         nombre: 'Monedas',

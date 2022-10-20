@@ -118,7 +118,12 @@ export const BrTable = ({
                                         return (
                                             <div className="from-group col-4" key={`coumna-${i}`}>
                                                 <label htmlFor="">{Header}</label>
-                                                <select name={accessor} id="" required className="form-control">
+                                                <select
+                                                    name={accessor}
+                                                    id=""
+                                                    required
+                                                    className="form-control"
+                                                >
                                                     {options.map((el) => {
                                                         return (
                                                             <option value={el.value} key={`opcion-${i}`}>
@@ -134,7 +139,13 @@ export const BrTable = ({
                                         <>
                                             <div className="form-group col-4">
                                                 <label htmlFor="">{Header}</label>
-                                                <input name={accessor} type={type} placeholder={Header} required className="form-control" />
+                                                <input
+                                                    name={accessor}
+                                                    type={type}
+                                                    placeholder={Header}
+                                                    required
+                                                    className="form-control"
+                                                />
                                             </div>
                                         </>
                                     )
@@ -146,7 +157,12 @@ export const BrTable = ({
                                 return (
                                     <div className="form-group col-4" key={i}>
                                         <label htmlFor="">{Header}</label>
-                                        <input name={accessor} placeholder={Header} className="form-control" required />
+                                        <input
+                                            name={accessor}
+                                            placeholder={Header}
+                                            className="form-control"
+                                            required
+                                        />
                                     </div>
                                 )
                             })}
@@ -182,7 +198,9 @@ export const BrTable = ({
                                                             <option
                                                                 value={el.value}
                                                                 key={el.value}
-                                                                selected={el.value === editD[accessor] && 'selected'}
+                                                                selected={
+                                                                    el.value === editD[accessor] && 'selected'
+                                                                }
                                                             >
                                                                 {el.name && el.name}
                                                             </option>
@@ -217,7 +235,13 @@ export const BrTable = ({
                                         <label htmlFor="" key={i}>
                                             {Header}
                                         </label>
-                                        <input name={accessor} placeholder={Header} key={i} className="form-control" required />
+                                        <input
+                                            name={accessor}
+                                            placeholder={Header}
+                                            key={i}
+                                            className="form-control"
+                                            required
+                                        />
                                     </div>
                                 )
                             })}
@@ -234,7 +258,7 @@ export const BrTable = ({
                     </form>
                 </div>
             )}
-            <div className="card-body table-responsive ">
+            <div className="card-body table-responsive">
                 <table className="table table-hover text-nowrap" {...getTableProps()}>
                     <thead>
                         {headerGroups.map((headerGroup) => (
@@ -266,25 +290,38 @@ export const BrTable = ({
                                                 <Fragment key={cell.render('Cell')}>
                                                     <td className="action">
                                                         <div
-                                                            onClick={() => editar(cell.row.original[identificador])}
+                                                            onClick={() =>
+                                                                editar(cell.row.original[identificador])
+                                                            }
                                                             to={`${endpoint}/editar/${cell.row.original[identificador]}`}
                                                             className="btn btn-success mr-1"
                                                         >
                                                             <i className="fa-solid fa-pen"></i>
                                                         </div>
                                                         <div
-                                                            onClick={() => handleDelete(endpoint, cell.row.original[identificador])}
+                                                            onClick={() =>
+                                                                handleDelete(
+                                                                    endpoint,
+                                                                    cell.row.original[identificador]
+                                                                )
+                                                            }
                                                             to={`${endpoint}/eliminar/${cell.row.original[identificador]}`}
                                                             className="btn btn-danger"
                                                         >
                                                             <i className="fa-solid fa-trash"></i>
                                                         </div>
                                                     </td>
-                                                    <td {...cell.getCellProps()}>{foranea ? valor : cell.render('Cell')}</td>
+                                                    <td {...cell.getCellProps()}>
+                                                        {foranea ? valor : cell.render('Cell')}
+                                                    </td>
                                                 </Fragment>
                                             )
                                         }
-                                        return <td {...cell.getCellProps()}>{foranea ? valor : cell.render('Cell')}</td>
+                                        return (
+                                            <td {...cell.getCellProps()}>
+                                                {foranea ? valor : cell.render('Cell')}
+                                            </td>
+                                        )
                                     })}
                                 </tr>
                             )
