@@ -11,6 +11,7 @@ import { useFetch } from '../hooks/useFetch'
 import { objetoToArray } from '../helpers/objectoToArray'
 import { rutas } from './rutas'
 import { Dashboard } from '../components/mantenimientos/Dashboard'
+import { Cuotas } from '../components/mantenimientos/cuotas/Cuotas'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -43,6 +44,7 @@ export const MainRouter = () => {
                             })}
                         </React.Fragment>
                     )}
+                    <Route path="prestamo/:id" element={<Cuotas />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </div>
