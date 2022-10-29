@@ -1,16 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { api } from '../../../api/axios'
 import { obtenerFormulario } from '../../../helpers/extract'
+import { notify } from '../../../helpers/notify'
 import { useFetch } from '../../../hooks/useFetch'
 import { useFetchConfig } from '../../../hooks/useFetchConfig'
 
 export const NuevoPrestamo = () => {
+    const navigate = useNavigate()
     const config = useFetchConfig()
     const handleForm = async (e) => {
         e.preventDefault()
         const formulario = obtenerFormulario(e)
         api.post('/prestamos', formulario, config).then((res) => {
-            console.log(res)
+            notify('Préstamo almacenado con éxito', 'success')
+            navigate('/prestamos')
         })
     }
 
