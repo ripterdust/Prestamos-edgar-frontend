@@ -26,7 +26,7 @@ export const BrTableMostrar = ({ columns = [], data = [], identificador = 'id' }
                                 {row.cells.map((cell, index) => {
                                     return (
                                         <>
-                                            {index == 0 ? (
+                                            {index === 0 ? (
                                                 <td className="action">
                                                     <Link
                                                         className="btn btn-success mr-1"

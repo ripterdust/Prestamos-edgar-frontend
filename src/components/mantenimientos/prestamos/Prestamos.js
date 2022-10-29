@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTable } from 'react-table'
 import { useFetch } from '../../../hooks/useFetch'
 import { BrTableMostrar } from '../../common/base/BrTableMostrar'
 

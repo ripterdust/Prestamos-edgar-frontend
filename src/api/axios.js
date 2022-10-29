@@ -2,7 +2,7 @@ import axios from 'axios'
 import { notify } from '../helpers/notify'
 
 export const api = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://192.168.1.137:8000',
 })
 
 api.interceptors.response.use(undefined, ({ response }) => {
@@ -11,7 +11,7 @@ api.interceptors.response.use(undefined, ({ response }) => {
     if (!response) {
         notify(error)
         return {
-            status,
+            status: 500,
             data: [],
         }
     }

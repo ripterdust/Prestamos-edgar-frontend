@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { notify } from '../../helpers/notify'
 import { objetoToArray } from '../../helpers/objectoToArray'
 import { useFetch } from '../../hooks/useFetch'
 import { categorias, rutas } from '../../router/rutas'
 import logo from './../../assets/logoBlanco.jpg'
-import {InstalarPWA} from './base/InstalarPWA'
+import { InstalarPWA } from './base/InstalarPWA'
 
 export const Aside = () => {
     const [data] = useFetch('/opcionesMenu/obtenerOpciones')
@@ -59,7 +58,7 @@ export const Aside = () => {
                             </Link>
                         </li>
 
-                        <InstalarPWA/>
+                        <InstalarPWA />
 
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (

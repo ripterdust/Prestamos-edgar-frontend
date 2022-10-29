@@ -1,6 +1,5 @@
 import React from 'react'
 import { extraerTotalRegistros } from '../../helpers/extract'
-import { randDate, randName, randNumber } from '../../helpers/fakeDataGenerator'
 import { formatDate } from '../../helpers/format.helper'
 import { useFetch } from '../../hooks/useFetch'
 import { BrGraficaComparativa } from '../common/base/BrGraficaComparativa'
@@ -20,16 +19,7 @@ export const Dashboard = () => {
         clientes: extraerTotalRegistros(totalClientes),
     }
     const columnasTablaPrestamos = ['Cliente', 'Monto', 'Cuotas', 'Prestamista', 'Fecha']
-    const arr = [1, 2, 3, 4, 5, 5, 5, 5]
 
-    const filasTablaPrestamos1 = arr.map(() => [
-        randName(),
-        `Q.${randNumber().toFixed(2)}`,
-        randNumber(),
-        randName(),
-        randDate(),
-    ])
-    console.log(ultimosPrestamos.data)
     let filasTablaPrestamos = ultimosPrestamos.data.map((prestamo) => [
         prestamo.cliente,
         `Q.${prestamo.cantidad}`,

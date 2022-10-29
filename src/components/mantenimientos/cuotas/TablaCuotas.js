@@ -25,7 +25,6 @@ export const TablaCuotas = ({ columns = [], data = [] }) => {
                             <tr {...row.getRowProps()}>
                                 {row.cells.map((cell, index) => {
                                     const celda = cell.row.cells[index].row.allCells[index]
-                                    const columna = celda.column
                                     const { booleano, fecha } = celda.column
                                     const valor = cell.value
                                     if (fecha) {

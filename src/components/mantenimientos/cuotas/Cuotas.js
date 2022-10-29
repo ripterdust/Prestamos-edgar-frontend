@@ -1,10 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { notify } from '../../../helpers/notify'
 import { useFetch } from '../../../hooks/useFetch'
 import { TablaCuotas } from './TablaCuotas'
 import ExportExcel from 'react-export-excel'
-import { formatDate } from '../../../helpers/format.helper'
 
 const ExcelFile = ExportExcel.ExcelFile
 const ExcelSheet = ExportExcel.ExcelSheet
