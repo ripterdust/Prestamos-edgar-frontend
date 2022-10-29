@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTable } from 'react-table'
+import { formatDate } from '../../../helpers/format.helper'
 
 export const TablaCuotas = ({ columns = [], data = [] }) => {
     const tableInstance = useTable({ columns, data })
@@ -25,18 +26,23 @@ export const TablaCuotas = ({ columns = [], data = [] }) => {
                                 {row.cells.map((cell, index) => {
                                     const celda = cell.row.cells[index].row.allCells[index]
                                     const columna = celda.column
-                                    const { booleano } = celda.column
+                                    const { booleano, fecha } = celda.column
+                                    const valor = cell.value
+                                    if (fecha) {
+                                        const fecha_pago = formatDate(valor)
+                                        return <td>{fecha_pago}</td>
+                                    }
                                     if (booleano) {
                                         return (
                                             <td className="action">
                                                 <div
                                                     className={`btn ${
-                                                        cell.value === 1 ? 'btn-success' : 'btn-danger'
+                                                        valor === 1 ? 'btn-success' : 'btn-danger'
                                                     }`}
                                                 >
                                                     <i
-                                                        class={`fa-solid ${
-                                                            cell.value === 1 ? 'fa-check' : 'fa-x'
+                                                        className={`fa-solid ${
+                                                            valor === 1 ? 'fa-check' : 'fa-x'
                                                         }`}
                                                     ></i>
                                                 </div>

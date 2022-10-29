@@ -28,6 +28,7 @@ export const Cuotas = () => {
         {
             Header: 'Fecha de pago',
             accessor: 'fecha_pago',
+            fecha: true,
         },
     ]
     return (
