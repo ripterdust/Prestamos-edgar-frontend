@@ -13,8 +13,10 @@ export const NuevoPrestamo = () => {
         e.preventDefault()
         const formulario = obtenerFormulario(e)
         api.post('/prestamos', formulario, config).then((res) => {
+            if (res.status != 200) return null
             notify('Préstamo almacenado con éxito', 'success')
-            navigate('/prestamos')
+            navigate(`/prestamo/${res.data.data[0]}`)
+            console.log(res)
         })
     }
 
