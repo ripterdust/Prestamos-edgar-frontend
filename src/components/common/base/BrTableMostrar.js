@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTable } from 'react-table'
 export const BrTableMostrar = ({ columns = [], data = [], identificador = 'id' }) => {
-    console.log(data)
     const tableInstance = useTable({ columns, data })
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
     return (
@@ -31,7 +30,7 @@ export const BrTableMostrar = ({ columns = [], data = [], identificador = 'id' }
                                                 <td className="action">
                                                     <Link
                                                         className="btn btn-success mr-1"
-                                                        to={`/coutas/${cell.row.original[identificador]}`}
+                                                        to={`/prestamo/${cell.row.original[identificador]}`}
                                                     >
                                                         <i className="fa-solid fa-eye"></i>
                                                     </Link>
