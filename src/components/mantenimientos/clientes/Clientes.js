@@ -31,6 +31,7 @@ export const Clientes = () => {
         {
             Header: 'Fecha de nacimiento',
             accessor: 'fecha_nacimiento',
+            type: 'date',
         },
         {
             Header: 'Dirección',
