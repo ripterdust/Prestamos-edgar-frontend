@@ -3,3 +3,10 @@ export const extraerTotalRegistros = (data) => {
 
     return res
 }
+
+export const obtenerFormulario = ({ target }) => {
+    const formData = new FormData(target)
+    const dataArray = [...formData]
+    const data = Object.fromEntries(dataArray)
+    return data
+}

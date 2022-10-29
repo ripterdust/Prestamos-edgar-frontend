@@ -51,7 +51,7 @@ export const rutas = [
         nombre: 'Nuevo Préstamo',
         categoria: categorias.prestamos,
         Componente: NuevoPrestamo,
-        endpoint: '/nuevoPrestamo',
+        endpoint: '/nuevoPrestamos',
         icono: 'fas fa-solid fa-cash-register',
     },
     {
