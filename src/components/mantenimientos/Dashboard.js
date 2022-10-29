@@ -1,6 +1,7 @@
 import React from 'react'
 import { extraerTotalRegistros } from '../../helpers/extract'
 import { randDate, randName, randNumber } from '../../helpers/fakeDataGenerator'
+import { formatDate } from '../../helpers/format.helper'
 import { useFetch } from '../../hooks/useFetch'
 import { BrGraficaComparativa } from '../common/base/BrGraficaComparativa'
 import { BrTarjetaAmarilla } from '../common/base/BrTarjetaAmarilla'
@@ -12,19 +13,29 @@ import { BrTarjetaVerde } from '../common/base/BrTarjetaVerde'
 export const Dashboard = () => {
     const [totalUsuarios] = useFetch('/usuarios/obtenerTotalRegistros')
     const [totalClientes] = useFetch('/clientes/obtenerTotalRegistros')
+    const [ultimosPrestamos] = useFetch('/prestamos/recientes')
 
     const conteos = {
         usuarios: extraerTotalRegistros(totalUsuarios),
         clientes: extraerTotalRegistros(totalClientes),
     }
-    const columnasTablaPrestamos = ['Cliente', 'Monto', 'Prestamista', 'Fecha']
+    const columnasTablaPrestamos = ['Cliente', 'Monto', 'Cuotas', 'Prestamista', 'Fecha']
     const arr = [1, 2, 3, 4, 5, 5, 5, 5]
 
-    const filasTablaPrestamos = arr.map(() => [
+    const filasTablaPrestamos1 = arr.map(() => [
         randName(),
         `Q.${randNumber().toFixed(2)}`,
+        randNumber(),
         randName(),
         randDate(),
+    ])
+    console.log(ultimosPrestamos.data)
+    let filasTablaPrestamos = ultimosPrestamos.data.map((prestamo) => [
+        prestamo.cliente,
+        `Q.${prestamo.cantidad}`,
+        prestamo.cuotas,
+        prestamo.prestamista,
+        formatDate(prestamo.fecha_creacion),
     ])
 
     return (
