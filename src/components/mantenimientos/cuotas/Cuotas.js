@@ -3,6 +3,12 @@ import { useParams } from 'react-router-dom'
 import { notify } from '../../../helpers/notify'
 import { useFetch } from '../../../hooks/useFetch'
 import { TablaCuotas } from './TablaCuotas'
+import ExportExcel from 'react-export-excel'
+import { formatDate } from '../../../helpers/format.helper'
+
+const ExcelFile = ExportExcel.ExcelFile
+const ExcelSheet = ExportExcel.ExcelSheet
+const ExcelColumn = ExportExcel.ExcelColumn
 
 export const Cuotas = () => {
     const { id } = useParams()
@@ -31,6 +37,7 @@ export const Cuotas = () => {
             fecha: true,
         },
     ]
+
     return (
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
@@ -38,7 +45,16 @@ export const Cuotas = () => {
                     <h3 className="card-header">
                         Cuotas
                         <div className="card-tools">
-                            <div className="btn btn-success">Descargar cuotas</div>
+                            <ExcelFile
+                                element={<div className="btn btn-success">Descargar cuotas</div>}
+                                filename="Datos de cuotas"
+                            >
+                                <ExcelSheet data={response.data} name="Cuotas de préstamo">
+                                    {columns.map(({ accessor, Header }) => {
+                                        return <ExcelColumn label={Header} value={accessor}></ExcelColumn>
+                                    })}
+                                </ExcelSheet>
+                            </ExcelFile>
                         </div>
                     </h3>
                     <div className="card-body">
