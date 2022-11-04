@@ -16,7 +16,6 @@ export const NuevoPrestamo = () => {
             if (res.status !== 200) return null
             notify('Préstamo almacenado con éxito', 'success')
             navigate(`/prestamo/${res.data.data[0]}`)
-            console.log(res)
         })
     }
 

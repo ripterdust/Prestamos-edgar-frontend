@@ -28,7 +28,6 @@ export const Aside = () => {
         return categoria === categorias.gestion && listaOpciones.includes(nombre.toLocaleLowerCase())
     })
 
-    console.log(rutasGestion)
     // const install = (e) => {
     //     e.preventDefault()
     //     notify('Función no implementada.')
