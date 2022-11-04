@@ -24,6 +24,11 @@ export const Aside = () => {
         return categoria === categorias.prestamos && listaOpciones.includes(nombre.toLocaleLowerCase())
     })
 
+    const rutasGestion = rutas.filter(({ categoria, nombre }) => {
+        return categoria === categorias.gestion && listaOpciones.includes(nombre.toLocaleLowerCase())
+    })
+
+    console.log(rutasGestion)
     // const install = (e) => {
     //     e.preventDefault()
     //     notify('Función no implementada.')
@@ -59,6 +64,15 @@ export const Aside = () => {
                         </li>
 
                         <InstalarPWA />
+                        {rutasGestion.length ? <li className="nav-header">{categorias.gestion}</li> : ''}
+                        {rutasGestion.map(({ nombre, endpoint, icono }) => (
+                            <li className="nav-item" key={nombre}>
+                                <Link className="nav-link" to={endpoint}>
+                                    <i className={`nav-icon ${icono}`}></i>
+                                    <p>{nombre}</p>
+                                </Link>
+                            </li>
+                        ))}
 
                         {rutasPersonas.length ? <li className="nav-header">Personas</li> : ''}
                         {rutasPersonas.map(({ nombre, endpoint, icono }) => (

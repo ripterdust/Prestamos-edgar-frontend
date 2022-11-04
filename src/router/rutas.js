@@ -10,6 +10,7 @@ export const categorias = {
     personas: 'personas',
     configuracion: 'configuracion',
     prestamos: 'Economía',
+    gestion: 'Gestión',
 }
 export const rutas = [
     {
@@ -67,5 +68,12 @@ export const rutas = [
         Componente: Monedas,
         endpoint: '/monedas',
         icono: 'fas fa-solid fa-money-bill',
+    },
+    {
+        nombre: 'Caja',
+        categoria: categorias.gestion,
+        Componente: Monedas,
+        endpoint: '/caja',
+        icono: 'fas fa-solid fa-sack-dollar',
     },
 ]
