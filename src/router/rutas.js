@@ -1,3 +1,4 @@
+import { Caja } from '../components/mantenimientos/caja/Caja'
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
 import { Monedas } from '../components/mantenimientos/monedas/Monedas'
 import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
@@ -72,7 +73,7 @@ export const rutas = [
     {
         nombre: 'Caja',
         categoria: categorias.gestion,
-        Componente: Monedas,
+        Componente: Caja,
         endpoint: '/caja',
         icono: 'fas fa-solid fa-sack-dollar',
     },
