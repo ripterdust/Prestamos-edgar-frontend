@@ -13,6 +13,7 @@ import { rutas } from './rutas'
 import { Dashboard } from '../components/mantenimientos/Dashboard'
 import { Cuotas } from '../components/mantenimientos/cuotas/Cuotas'
 import { NuevoPrestamo } from '../components/mantenimientos/prestamos/NuevoPrestamo'
+import { Caja } from '../components/mantenimientos/caja/Caja'
 
 export const MainRouter = () => {
     const { context } = useContext(TokenContext)
@@ -43,6 +44,7 @@ export const MainRouter = () => {
                             {rutasAccesibles.map(({ Componente, endpoint }, i) => {
                                 return <Route path={endpoint} element={<Componente />} key={i} />
                             })}
+                            <Route path="/cajaPrueba" element={<Caja />}></Route>
                         </React.Fragment>
                     )}
                     <Route path="nuevoPrestamo" element={<NuevoPrestamo />} />

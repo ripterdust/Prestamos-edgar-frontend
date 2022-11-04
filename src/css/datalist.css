@@ -1,0 +1,61 @@
+:root {
+    --color: #f5f6fe;
+    --bg: #2f3640;
+}
+.select-box {
+    display: flex;
+    width: 400px;
+    flex-direction: column-reverse;
+}
+
+.select-box .options-container {
+    background: var(--bg);
+    color: var(--color);
+    width: 100%;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.select-box .options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #0d141f;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+}
+.select-box .option,
+.selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background: #414b57;
+}
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+
+.selected {
+    background: var(--bg);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: var(--color);
+    position: relative;
+}
