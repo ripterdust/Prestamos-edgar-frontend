@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatMoney } from '../../../helpers/format.helper'
+import { formatDate, formatMoney } from '../../../helpers/format.helper'
 
 export const TablaLogs = ({ columns, data }) => {
     return (
@@ -25,7 +25,7 @@ export const TablaLogs = ({ columns, data }) => {
                         return (
                             <tr key={log.log_id}>
                                 <td>{log.log_id}</td>
-                                <td>{log.fecha_creacion}</td>
+                                <td>{formatDate(log.fecha_creacion)}</td>
                                 <td>{tipo}</td>
                                 <td>{formatMoney(log.cantidad)}</td>
                             </tr>
