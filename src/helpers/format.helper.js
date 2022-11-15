@@ -7,7 +7,7 @@ export const formatDate = (date) =>
         month: 'long',
     })
 
-export const formatMoney = (quantity, currency) => {
+export const formatMoney = (quantity, currency = 'GTQ') => {
     const formater = new Intl.NumberFormat(getUsrLang(), {
         style: 'currency',
         currency,

@@ -3,11 +3,13 @@ import { useState } from 'react'
 import '../../../css/datalist.css'
 import { formatMoney } from '../../../helpers/format.helper'
 import { useFetch } from '../../../hooks/useFetch'
+import { Select } from '../../common/general/Select'
 export const Caja = () => {
     const [response] = useFetch('/clientes')
     const [selected, setSelected] = useState('Seleccionar cliente')
     const [activeBar, setActiveBar] = useState(false)
     const [money, setMoney] = useState(false)
+    const [cutasUsuario, setCuotasUsuario] = useState(null)
     let listaClientes = response.data ? response.data : []
 
     const toggleSearchBar = () => {

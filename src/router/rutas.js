@@ -1,5 +1,6 @@
 import { Caja } from '../components/mantenimientos/caja/Caja'
 import { Clientes } from '../components/mantenimientos/clientes/Clientes'
+import { Logs } from '../components/mantenimientos/logs/Logs'
 import { Monedas } from '../components/mantenimientos/monedas/Monedas'
 import { OpcionesMenu } from '../components/mantenimientos/opcionesMenu/OpcionesMenu'
 import { NuevoPrestamo } from '../components/mantenimientos/prestamos/NuevoPrestamo'
@@ -76,5 +77,12 @@ export const rutas = [
         Componente: Caja,
         endpoint: '/caja',
         icono: 'fas fa-solid fa-sack-dollar',
+    },
+    {
+        nombre: 'Logs',
+        categoria: categorias.gestion,
+        endpoint: '/logs',
+        icono: 'fa-solid fa-chart-simple',
+        Componente: Logs,
     },
 ]
