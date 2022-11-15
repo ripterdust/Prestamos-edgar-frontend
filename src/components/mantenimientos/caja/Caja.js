@@ -1,17 +1,23 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { useState } from 'react'
+import { api } from '../../../api/axios'
 import '../../../css/datalist.css'
 import { formatMoney } from '../../../helpers/format.helper'
+import { TokenContext } from '../../../hooks/useContextUser'
 import { useFetch } from '../../../hooks/useFetch'
-import { Select } from '../../common/general/Select'
+
 export const Caja = () => {
+    const { context, setContext } = useContext(TokenContext)
     const [response] = useFetch('/clientes')
     const [config] = useFetch('/config')
 
     const [selected, setSelected] = useState('Seleccionar cliente')
     const [activeBar, setActiveBar] = useState(false)
-    const [money, setMoney] = useState(false)
+    const [money, setMoney] = useState(0)
+
     const [cutasUsuario, setCuotasUsuario] = useState(null)
+
     let listaClientes = response.data ? response.data : []
 
     let caja = { config_id: 1, caja: 0, moneda: 'GTQ' }
@@ -30,8 +36,19 @@ export const Caja = () => {
         setSelected(`${radio.value} - ${label.innerHTML}`)
     }
 
-    const handleMoneyForm = (e) => {
+    const handleMoneyForm = async (e) => {
         e.preventDefault()
+        const res = await api.post(
+            `config/edit/1 `,
+            { caja: money },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + context,
+                },
+            }
+        )
+
+        console.log(res)
     }
 
     const handleMoney = (e) => {
