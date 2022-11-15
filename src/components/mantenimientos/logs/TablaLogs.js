@@ -16,17 +16,22 @@ export const TablaLogs = ({ columns, data }) => {
                     {data.map((log) => {
                         const tipo =
                             log.tipo === 1
-                                ? 'Ingreso a caja'
-                                : log.tipo == 2
                                 ? 'Préstamo'
+                                : log.tipo == 2
+                                ? 'Pago cuota'
                                 : log.tipo === 3
-                                ? 'Pago'
-                                : 'Retiro de caja'
+                                ? 'Retiro de caja'
+                                : 'Ingreso a caja'
+
                         return (
                             <tr key={log.log_id}>
                                 <td>{log.log_id}</td>
                                 <td>{formatDate(log.fecha_creacion)}</td>
-                                <td>{tipo}</td>
+                                <td>
+                                    <span className={`badge bg-${log.tipo % 2 != 0 ? 'danger' : 'success'}`}>
+                                        {tipo}
+                                    </span>
+                                </td>
                                 <td>{formatMoney(log.cantidad)}</td>
                             </tr>
                         )

@@ -1,10 +1,13 @@
 import React from 'react'
-import { useTable } from 'react-table'
+import { useFetch } from '../../../hooks/useFetch'
 import { TablaLogs } from './TablaLogs'
 export const Logs = () => {
+    const [logs] = useFetch('logs')
+
+    const data = logs.data ? logs.data : []
+
     const columns = ['#', 'Fecha', 'Tipo', 'Cantidad']
 
-    const data = [{ log_id: 1, fecha_creacion: '2022-12-04 14:42:18', tipo: 1, cantidad: 100 }]
     return (
         <div className="row p-1 w-100">
             <div className="col-12 p-4">
