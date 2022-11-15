@@ -6,12 +6,21 @@ import { useFetch } from '../../../hooks/useFetch'
 import { Select } from '../../common/general/Select'
 export const Caja = () => {
     const [response] = useFetch('/clientes')
+    const [config] = useFetch('/config')
+
     const [selected, setSelected] = useState('Seleccionar cliente')
     const [activeBar, setActiveBar] = useState(false)
     const [money, setMoney] = useState(false)
     const [cutasUsuario, setCuotasUsuario] = useState(null)
     let listaClientes = response.data ? response.data : []
 
+    let caja = { config_id: 1, caja: 0, moneda: 'GTQ' }
+
+    if (config.data) {
+        if (config.data[0]) {
+            caja = config.data[0]
+        }
+    }
     const toggleSearchBar = () => {
         setActiveBar((state) => !state)
     }
@@ -29,7 +38,6 @@ export const Caja = () => {
         setMoney(e.target.value)
     }
 
-    const config = { dinero: 200 }
     return (
         <>
             <div className="row p-1 w-100">
@@ -40,7 +48,7 @@ export const Caja = () => {
                         </div>
                         <form action="" onSubmit={handleMoneyForm}>
                             <div className="card-body">
-                                <h4>Dinero en caja: {formatMoney(config.dinero, 'GTQ')}</h4>
+                                <h4>Dinero en caja: {formatMoney(caja.caja, 'GTQ')}</h4>
 
                                 <div>
                                     <input

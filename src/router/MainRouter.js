@@ -45,7 +45,7 @@ export const MainRouter = () => {
                             {rutasAccesibles.map(({ Componente, endpoint }, i) => {
                                 return <Route path={endpoint} element={<Componente />} key={i} />
                             })}
-                            <Route path="/logsPrueba" element={<Logs />}></Route>
+                            <Route path="/prueba" element={<Caja />}></Route>
                         </React.Fragment>
                     )}
 
