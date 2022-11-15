@@ -48,7 +48,10 @@ export const Caja = () => {
             }
         )
 
-        console.log(res)
+        if (res.status === 200) {
+            caja.caja = money
+            setMoney(0)
+        }
     }
 
     const handleMoney = (e) => {
