@@ -48,7 +48,7 @@ export const MainRouter = () => {
                             <Route path="/prueba" element={<Caja />}></Route>
                         </React.Fragment>
                     )}
-
+                    <Route path="prestamo/:id" element={<Cuotas />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </div>
