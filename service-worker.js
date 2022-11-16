@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Prestamos-edgar-frontend/precache-manifest.2c16617e369b3242c735077bbfc6b5e5.js"
+  "/Prestamos-edgar-frontend/precache-manifest.bd9a7f68b21dbb0535e6bf924988dd67.js"
 );
 
 workbox.clientsClaim();
