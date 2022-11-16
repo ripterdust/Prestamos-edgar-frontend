@@ -1,7 +1,7 @@
 {
   "main.css": "/Prestamos-edgar-frontend/static/css/main.e1be2e6d.chunk.css",
-  "main.js": "/Prestamos-edgar-frontend/static/js/main.fa6971fe.chunk.js",
-  "main.js.map": "/Prestamos-edgar-frontend/static/js/main.fa6971fe.chunk.js.map",
+  "main.js": "/Prestamos-edgar-frontend/static/js/main.fe8adcc1.chunk.js",
+  "main.js.map": "/Prestamos-edgar-frontend/static/js/main.fe8adcc1.chunk.js.map",
   "runtime~main.js": "/Prestamos-edgar-frontend/static/js/runtime~main.13c0a155.js",
   "runtime~main.js.map": "/Prestamos-edgar-frontend/static/js/runtime~main.13c0a155.js.map",
   "static/css/2.8f53333d.chunk.css": "/Prestamos-edgar-frontend/static/css/2.8f53333d.chunk.css",
@@ -10,7 +10,7 @@
   "static/js/3.c6921cc9.chunk.js": "/Prestamos-edgar-frontend/static/js/3.c6921cc9.chunk.js",
   "static/js/3.c6921cc9.chunk.js.map": "/Prestamos-edgar-frontend/static/js/3.c6921cc9.chunk.js.map",
   "index.html": "/Prestamos-edgar-frontend/index.html",
-  "precache-manifest.bd9a7f68b21dbb0535e6bf924988dd67.js": "/Prestamos-edgar-frontend/precache-manifest.bd9a7f68b21dbb0535e6bf924988dd67.js",
+  "precache-manifest.2b996c8cb37cf4d9bd2b92843ae13ab7.js": "/Prestamos-edgar-frontend/precache-manifest.2b996c8cb37cf4d9bd2b92843ae13ab7.js",
   "service-worker.js": "/Prestamos-edgar-frontend/service-worker.js",
   "static/css/2.8f53333d.chunk.css.map": "/Prestamos-edgar-frontend/static/css/2.8f53333d.chunk.css.map",
   "static/css/main.e1be2e6d.chunk.css.map": "/Prestamos-edgar-frontend/static/css/main.e1be2e6d.chunk.css.map",

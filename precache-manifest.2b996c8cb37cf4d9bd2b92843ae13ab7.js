@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3ea4a4beca0ea2b78a5b",
+    "revision": "33915beda41876a32293",
     "url": "/Prestamos-edgar-frontend/static/css/main.e1be2e6d.chunk.css"
   },
   {
-    "revision": "3ea4a4beca0ea2b78a5b",
-    "url": "/Prestamos-edgar-frontend/static/js/main.fa6971fe.chunk.js"
+    "revision": "33915beda41876a32293",
+    "url": "/Prestamos-edgar-frontend/static/js/main.fe8adcc1.chunk.js"
   },
   {
     "revision": "16b1dedd5ac05f375856",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/Prestamos-edgar-frontend/static/media/logoBlanco.89ecd26e.jpg"
   },
   {
-    "revision": "c676db56b8d5fde0e82d01b9d448bddd",
+    "revision": "fd4358a8abc60863ee601081a809dbf8",
     "url": "/Prestamos-edgar-frontend/index.html"
   }
 ];
